@@ -8,6 +8,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import {ModalContentPage} from '../pages/home/modal-content-page'
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -23,7 +24,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ModalContentPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ModalContentPage
   ],
   providers: [
     StatusBar,

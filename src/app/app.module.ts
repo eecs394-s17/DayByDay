@@ -7,7 +7,9 @@ import {AngularFireDatabase} from 'angularfire2/database';
 
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { ParentHome } from '../pages/parentHome/parentHome';
+import { NurseHome } from '../pages/nurseHome/nurseHome';
+import { SignIn } from '../pages/signIn/signIn';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -23,7 +25,9 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    ParentHome,
+    NurseHome,
+    SignIn
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    NurseHome,
+    ParentHome,
+    SignIn
   ],
   providers: [
     StatusBar,

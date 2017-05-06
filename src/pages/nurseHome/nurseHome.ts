@@ -4,9 +4,9 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'nurseHome.html'
 })
-export class HomePage {
+export class NurseHome {
   updates: FirebaseListObservable<any>;
 
   constructor(public alertCtrl: AlertController, public db: AngularFireDatabase) {
@@ -23,7 +23,7 @@ export class HomePage {
       },
     ],
     buttons: [
-      {
+      { 
         text: 'Cancel',
         handler: data => {
           console.log('Cancel clicked');

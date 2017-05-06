@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        SignIn
+    </ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+ 
+  <ion-item ui-sref="nursePage">
+    <button [navPush]="nurseHome">I am a Nurse</button>
+  </ion-item>
+  <ion-item>
+     <button [navPush]="parentHome">I am a Parent</button>
+  </ion-item>
+</ion-list>
+</ion-content>

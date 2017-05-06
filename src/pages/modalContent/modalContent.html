@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Please select a message to send
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (submit)="doSubmit($event)" [formGroup]="messageForm">
+    <ion-list radio-group formControlName="message">
+
+      <ion-list-header>
+        Message
+      </ion-list-header>
+
+      <ion-item *ngFor="let m of messages">
+        <ion-label>{{m.message}}</ion-label>
+        <ion-radio value={{m.message}}></ion-radio>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button type="submit" block round>Send</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

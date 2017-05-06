@@ -1,45 +1,20 @@
 import {Component} from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import {ModalContent} from '../modalContent/modalContent'
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'nurseHome.html'
+  templateUrl: 'NurseHome.html'
 })
 export class NurseHome {
   updates: FirebaseListObservable<any>;
 
-  constructor(public alertCtrl: AlertController, public db: AngularFireDatabase) {
+  constructor(public modalCtrl: ModalController, public db: AngularFireDatabase) {
     this.updates = db.list('/updates');
   }
   addUpdate(){
-    let prompt = this.alertCtrl.create({
-    title: 'Update Name',
-    message: "Message you would like to send here",
-    inputs: [
-      {
-        name: 'content',
-        placeholder: 'Enter your message here',
-      },
-    ],
-    buttons: [
-      { 
-        text: 'Cancel',
-        handler: data => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.updates.push({
-            content: data.content
-          });
-        }
-      }
-    ]
-  });
-  prompt.present();
+    let modal = this.modalCtrl.create(ModalContent);
+    modal.present();
 }
 
 }

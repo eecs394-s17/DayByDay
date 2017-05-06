@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { ParentHome } from '../pages/parentHome/parentHome';
 import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { SignIn } from '../pages/signIn/signIn';
+import { ModalContent } from '../pages/modalContent/modalContent';
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -27,7 +28,8 @@ export const firebaseConfig = {
     MyApp,
     ParentHome,
     NurseHome,
-    SignIn
+    SignIn,
+    ModalContent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ export const firebaseConfig = {
     MyApp,
     NurseHome,
     ParentHome,
-    SignIn
+    SignIn,
+    ModalContent
   ],
   providers: [
     StatusBar,

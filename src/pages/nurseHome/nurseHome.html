@@ -1,13 +1,14 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+      <ion-title class="title">
         DayByDay
     </ion-title>
-    <ion-buttons>
-        <button ion-button icon-only (click)="addUpdate()">
-            <ion-icon name="add"></ion-icon>
-        </button>
-    </ion-buttons>
+    <button class="update-button" ion-button icon-left (click)="addUpdate()">
+        <ion-icon name="add"></ion-icon>
+        <span>
+            Send Update
+        </span>
+    </button>
   </ion-navbar>
 </ion-header>
 

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-        SignIn
+        Sign in
     </ion-title>
     
   </ion-navbar>
@@ -9,12 +9,21 @@
 
 <ion-content padding>
   <ion-list>
- 
-  <ion-item ui-sref="nursePage">
-    <button [navPush]="nurseHome">I am a Nurse</button>
-  </ion-item>
-  <ion-item>
-     <button [navPush]="parentHome">I am a Parent</button>
-  </ion-item>
-</ion-list>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button (click)="handleSignin()">Sign in</button>
+  </div>
+
 </ion-content>

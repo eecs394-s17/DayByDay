@@ -9,8 +9,15 @@
 <ion-content>
 
   <form (submit)="doSubmit($event)" [formGroup]="messageForm">
+    <ion-item>
+        <ion-label>Child</ion-label>
+        <ion-select formControlName="child">
+            <ion-option *ngFor="let c of children" value={{c.id}}>
+                {{c.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
     <ion-list radio-group formControlName="message">
-
       <ion-list-header>
         Message
       </ion-list-header>
@@ -19,7 +26,6 @@
         <ion-label>{{m.message}}</ion-label>
         <ion-radio value={{m.message}}></ion-radio>
       </ion-item>
-
     </ion-list>
 
     <ion-grid>

@@ -8,6 +8,7 @@ import { ParentHome } from '../pages/parentHome/parentHome';
 import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
+import { Staff } from '../pages/staff/staff';
 @Component({
   templateUrl: 'app.html'
 })
@@ -23,7 +24,7 @@ export class MyApp {
       { title: 'Home', component: ParentHome },
       { title: 'Hospital Info', component: HospitalInfo },
       { title: 'Common Procedures', component: HospitalInfo },
-      { title: 'Staff', component: HospitalInfo },
+      { title: 'Staff', component: Staff },
     ];
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

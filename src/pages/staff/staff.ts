@@ -11,7 +11,7 @@ export class Staff {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Staff');
+    
   }
 
 }

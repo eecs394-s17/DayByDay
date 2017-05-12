@@ -7,6 +7,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 
 
 import { MyApp } from './app.component';
+import {HospitalInfo}from '../pages/hospitalInfo/hospitalInfo';
 import { ParentHome } from '../pages/parentHome/parentHome';
 import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { SignIn } from '../pages/signIn/signIn';
@@ -29,7 +30,8 @@ export const firebaseConfig = {
     ParentHome,
     NurseHome,
     SignIn,
-    ModalContent
+    ModalContent,
+    HospitalInfo
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ export const firebaseConfig = {
     NurseHome,
     ParentHome,
     SignIn,
-    ModalContent
+    ModalContent,
+    HospitalInfo
   ],
   providers: [
     StatusBar,

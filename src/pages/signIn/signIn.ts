@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { ParentHome } from '../parentHome/parentHome';
 import { NurseHome } from '../nurseHome/nurseHome';
+import { Platform, MenuController, Nav } from 'ionic-angular';
 
 @Component({
   templateUrl: 'signIn.html'
@@ -11,10 +12,10 @@ import { NurseHome } from '../nurseHome/nurseHome';
 export class SignIn {
   nurseHome = NurseHome;
   parentHome = ParentHome; 
-
+  
   updates: FirebaseListObservable<any>;
 
-  constructor(public alertCtrl: AlertController, public db: AngularFireDatabase) {
+  constructor(public alertCtrl: AlertController, public db: AngularFireDatabase, public navCtrl: NavController) {
     this.updates = db.list('/updates');
   }
   addUpdate(){
@@ -46,6 +47,13 @@ export class SignIn {
   });
   prompt.present();
 }
+openPage() {
+    // close the menu when clicking a link from the menu
+    //this.menu.close();
+    // navigate to the new page if it is not the current page
+    console.log(this.parentHome)
+    this.navCtrl.setRoot(this.parentHome);
+  }
 
 }
 

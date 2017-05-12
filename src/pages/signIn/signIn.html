@@ -11,10 +11,10 @@
   <ion-list>
  
   <ion-item ui-sref="nursePage">
-    <button [navPush]="nurseHome">I am a Nurse</button>
+    <button (click) = "openNewRoot(nurseHome)">I am a Nurse</button>
   </ion-item>
   <ion-item>
-     <button (click) = "openPage()"> I am a Parent </button>
+     <button (click) = "openNewRoot(parentHome)"> I am a Parent </button>
   </ion-item>
 </ion-list>
 </ion-content>

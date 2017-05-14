@@ -11,46 +11,17 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 })
 export class SignIn {
   nurseHome = NurseHome;
-  parentHome = ParentHome; 
-  
+  parentHome = ParentHome;
+
   updates: FirebaseListObservable<any>;
 
   constructor(public alertCtrl: AlertController, public db: AngularFireDatabase, public navCtrl: NavController) {
+    //Get database list of messages
     this.updates = db.list('/updates');
   }
-  addUpdate(){
-    let prompt = this.alertCtrl.create({
-    title: 'Update Name',
-    message: "Message you would like to send here",
-    inputs: [
-      {
-        name: 'content',
-        placeholder: 'Enter your message here',
-      },
-    ],
-    buttons: [
-      { 
-        text: 'Cancel',
-        handler: data => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Save',
-        handler: data => {
-          this.updates.push({
-            content: data.content
-          });
-        }
-      }
-    ]
-  });
-  prompt.present();
-}
+
 openNewRoot(page) {
     this.navCtrl.setRoot(page);
   }
 
 }
-
-

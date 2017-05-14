@@ -12,7 +12,7 @@
     <ion-item>
         <ion-label>Child</ion-label>
         <ion-select formControlName="child">
-            <ion-option *ngFor="let c of children" value={{c.id}}>
+            <ion-option *ngFor="let c of children | async" value={{c.id}}>
                 {{c.name}}
             </ion-option>
         </ion-select>
@@ -22,7 +22,7 @@
         Message
       </ion-list-header>
 
-      <ion-item *ngFor="let m of messages">
+      <ion-item *ngFor="let m of messages | async">
         <ion-label>{{m.message}}</ion-label>
         <ion-radio value={{m.message}}></ion-radio>
       </ion-item>

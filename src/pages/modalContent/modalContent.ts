@@ -32,7 +32,9 @@ export class ModalContent {
         this.updates.push({
           content: this.messageForm.value.message,
           child: this.messageForm.value.child,
-          timestamp: 0 - new Date().getTime()
+          timestamp: 0 - new Date().getTime(),
+          updateType: ""
+
         });
       }
       this.dismiss();

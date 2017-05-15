@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { ParentHome } from '../parentHome/parentHome';
 import { NurseHome } from '../nurseHome/nurseHome';
+import { SuiteSelection } from '../suiteSelection/suiteSelection';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
 @Component({
@@ -12,6 +13,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 export class SignIn {
   nurseHome = NurseHome;
   parentHome = ParentHome;
+  suiteSelection = SuiteSelection;
 
   updates: FirebaseListObservable<any>;
 

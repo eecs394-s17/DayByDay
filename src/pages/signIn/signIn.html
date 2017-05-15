@@ -3,18 +3,17 @@
     <ion-title>
         SignIn
     </ion-title>
-    
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
- 
-  <ion-item ui-sref="nursePage">
-    <button (click) = "openNewRoot(nurseHome)">I am a Nurse</button>
-  </ion-item>
-  <ion-item>
-     <button (click) = "openNewRoot(parentHome)"> I am a Parent </button>
-  </ion-item>
-</ion-list>
+      <ion-item ui-sref="nursePage">
+        <button (click) = "openNewRoot(suiteSelection)">I am a Nurse</button>
+      </ion-item>
+      <ion-item>
+         <button (click) = "openNewRoot(parentHome)"> I am a Parent </button>
+      </ion-item>
+  </ion-list>
 </ion-content>

@@ -17,7 +17,6 @@ export class ModalContent {
         public db: AngularFireDatabase) {
 
       this.updates = db.list('/updates');
-
       this.messages = db.list('/messages');
       this.children = db.list('/children');
 
@@ -33,7 +32,9 @@ export class ModalContent {
         this.updates.push({
           content: this.messageForm.value.message,
           child: this.messageForm.value.child,
-          timestamp: new Date().getTime()
+          timestamp: 0 - new Date().getTime(),
+          updateType: ""
+
         });
       }
       this.dismiss();

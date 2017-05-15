@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-        SignIn
+        Sign in
     </ion-title>
 
   </ion-navbar>
@@ -16,4 +16,43 @@
          <button (click) = "openNewRoot(parentHome)"> I am a Parent </button>
       </ion-item>
   </ion-list>
+
+
+
+  <form [formGroup]="signinForm" (submit)="signIn()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address" 
+        [class.invalid]="!signinForm.controls.email.valid && signinForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" 
+      *ngIf="!signinForm.controls.email.valid  && signinForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Your password"
+        [class.invalid]="!signinForm.controls.password.valid && signinForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" 
+      *ngIf="!signinForm.controls.password.valid  && signinForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Sign in
+    </button>
+
+  </form>
+
+  <button ion-button block clear (click)="goToSignup()">
+    Create a new account
+  </button>
+
+  <button ion-button block clear (click)="goToResetPassword()">
+    I forgot my password
+  </button>
+
 </ion-content>

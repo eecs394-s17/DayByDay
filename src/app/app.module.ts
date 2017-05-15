@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {AngularFireDatabase} from 'angularfire2/database';
 
-
 import { MyApp } from './app.component';
 import { HospitalInfo }from '../pages/hospitalInfo/hospitalInfo';
 import { ParentHome } from '../pages/parentHome/parentHome';
@@ -14,6 +13,8 @@ import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
 import { CommonProcedures } from '../pages/commonProcedures/commonProcedures';
+import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
+
 
 import { AngularFireModule } from 'angularfire2';
 
@@ -35,7 +36,8 @@ export const firebaseConfig = {
     ModalContent,
     HospitalInfo,
     Staff,
-    CommonProcedures
+    CommonProcedures,
+    SuiteSelection
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ export const firebaseConfig = {
     ModalContent,
     HospitalInfo,
     Staff,
-    CommonProcedures
+    CommonProcedures,
+    SuiteSelection
   ],
   providers: [
     StatusBar,

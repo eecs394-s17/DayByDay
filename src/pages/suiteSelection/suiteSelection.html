@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Suite Selection
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngFor="let update of updates | async; let even=even;" (click) = "openNewRoot(nurseHome)">
+    
+    <ion-list-header *ngIf="even">
+      Suite: {{update.suite}}
+    </ion-list-header>
+
+    <ion-item>
+      {{update.name}}
+    </ion-item>
+
+  </ion-list>
+
+  <!-- <ion-list>
+
+    <ion-item *ngFor="let update of updates | async">
+    {{update.suite + " " + update.name}}
+  </ion-item>
+  </ion-list> -->
+</ion-content>

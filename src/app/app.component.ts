@@ -10,6 +10,8 @@ import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
 import { CommonProcedures } from '../pages/commonProcedures/commonProcedures';
+import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
+
 @Component({
   templateUrl: 'app.html'
 })

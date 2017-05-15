@@ -10,6 +10,8 @@ import { MyApp } from './app.component';
 import { HospitalInfo }from '../pages/hospitalInfo/hospitalInfo';
 import { ParentHome } from '../pages/parentHome/parentHome';
 import { NurseHome } from '../pages/nurseHome/nurseHome';
+import { NurseViewUpdates } from '../pages/nurse-view-updates/nurse-view-updates';
+import { NurseSendUpdate } from '../pages/nurse-send-update/nurse-send-update';
 import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
@@ -35,7 +37,9 @@ export const firebaseConfig = {
     ModalContent,
     HospitalInfo,
     Staff,
-    CommonProcedures
+    CommonProcedures,
+    NurseViewUpdates,
+    NurseSendUpdate
   ],
   imports: [
     BrowserModule,
@@ -51,6 +55,8 @@ export const firebaseConfig = {
     ModalContent,
     HospitalInfo,
     Staff,
+    NurseViewUpdates,
+    NurseSendUpdate,
     CommonProcedures
   ],
   providers: [

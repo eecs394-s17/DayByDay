@@ -16,6 +16,8 @@ import { Staff } from '../pages/staff/staff';
 import { CommonProcedures } from '../pages/commonProcedures/commonProcedures';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from '../providers/auth-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCdWTrzsyttCyyHDLiHx33_VydZIJs1qkY",
@@ -40,7 +42,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,7 +60,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}

@@ -1,20 +1,15 @@
 import {Component} from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {ModalContent} from '../modalContent/modalContent'
+import { NurseViewUpdates } from '../nurse-view-updates/nurse-view-updates';
+import { NurseSendUpdate } from '../nurse-send-update/nurse-send-update';
 
 @Component({
   templateUrl: 'NurseHome.html'
 })
 export class NurseHome {
-  updates: FirebaseListObservable<any>;
-
-  constructor(public modalCtrl: ModalController, public db: AngularFireDatabase) {
-    this.updates = db.list('/updates');
+    sendUpdate: any;
+    viewUpdates: any;
+  constructor() {
+    this.sendUpdate = NurseSendUpdate;
+    this.viewUpdates = NurseViewUpdates ;
   }
-  addUpdate(){
-    let modal = this.modalCtrl.create(ModalContent);
-    modal.present();
-}
-
 }

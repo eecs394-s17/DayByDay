@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
       <ion-title class="title">
-        Hospital Info
+        Information
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -21,7 +21,7 @@
       Dining
     </button>
 
-    <button ion-item>
+    <button (click) = "openPage(parentSupportSystems)" ion-item>
       <ion-icon name="heart" item-left></ion-icon>
       Parent Support Systems
     </button>
@@ -38,7 +38,7 @@
       <ion-icon name="medkit" item-left></ion-icon>
       Common Procedures
     </button>
-    <button ion-item>
+    <button (click) = "openPage(typesOfProviders)" ion-item>
       <ion-icon name="people" item-left></ion-icon>
       Types of Medical Providers
     </button>

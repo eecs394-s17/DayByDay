@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 
 @Component({
-  templateUrl: 'commonProcedures.html'
+  templateUrl: 'typesOfProviders.html'
 })
 
-export class CommonProcedures {
+export class TypesOfProviders {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

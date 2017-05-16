@@ -24,7 +24,7 @@ export class MyApp {
     platform.ready().then(() => {
     this.pages = [
       { title: 'Home', component: ParentHome },
-      { title: 'Hospital Info', component: HospitalInfo },
+      { title: 'Information', component: HospitalInfo },
       { title: 'Staff', component: Staff },
     ];
       // Okay, so the platform is ready and our plugins are available.

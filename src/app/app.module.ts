@@ -17,7 +17,10 @@ import { Staff } from '../pages/staff/staff';
 import { CommonProcedures } from '../pages/hospitalInfo/commonProcedures/commonProcedures';
 import { Dining } from '../pages/hospitalInfo/dining/dining';
 import { GuestPolicies } from '../pages/hospitalInfo/guestPolicies/guestPolicies';
+import { ParentSupportSystems } from '../pages/hospitalInfo/parentSupportSystems/parentSupportSystems';
+import { TypesOfProviders } from '../pages/hospitalInfo/typesOfProviders/typesOfProviders';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
+
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -45,6 +48,8 @@ export const firebaseConfig = {
     CommonProcedures,
     Dining,
     GuestPolicies,
+    ParentSupportSystems,
+    TypesOfProviders,
     NurseViewUpdates,
     NurseSendUpdate,
     SuiteSelection
@@ -67,6 +72,8 @@ export const firebaseConfig = {
     CommonProcedures,
     Dining,
     GuestPolicies,
+    ParentSupportSystems,
+    TypesOfProviders,
     NurseViewUpdates,
     NurseSendUpdate,
     SuiteSelection

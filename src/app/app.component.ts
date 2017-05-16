@@ -9,7 +9,6 @@ import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
-import { CommonProcedures } from '../pages/commonProcedures/commonProcedures';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 
 @Component({
@@ -26,7 +25,6 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: ParentHome },
       { title: 'Hospital Info', component: HospitalInfo },
-      { title: 'Common Procedures', component: CommonProcedures },
       { title: 'Staff', component: Staff },
     ];
       // Okay, so the platform is ready and our plugins are available.

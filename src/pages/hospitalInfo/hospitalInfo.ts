@@ -1,22 +1,23 @@
 import {Component} from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {ModalContent} from '../modalContent/modalContent'
+import { CommonProcedures } from '../hospitalInfo/commonProcedures/commonProcedures';
+import { Dining } from '../hospitalInfo/dining/dining';
+import { GuestPolicies } from '../hospitalInfo/guestPolicies/guestPolicies';
 
 @Component({
   templateUrl: 'hospitalInfo.html'
 })
 export class HospitalInfo {
-  updates: FirebaseListObservable<any>;
+	commonProcedures = CommonProcedures;
+	dining = Dining
+	guestPolicies = GuestPolicies
 
-  constructor(public modalCtrl: ModalController, public db: AngularFireDatabase) {
-    this.updates = db.list('/updates');
+  constructor(public navCtrl: NavController) {
+    
   }
-  addUpdate(){
-    let modal = this.modalCtrl.create(ModalContent);
-    modal.present();
-}
-
+  openPage(page) {
+  	this.navCtrl.push(page);
+  }
 }
 
 

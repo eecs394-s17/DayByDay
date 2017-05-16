@@ -9,8 +9,45 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="nursePage" padding>
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    Hospital
+  </ion-card-header>
+
   <ion-list>
-  <p> hospital info here </p>
-</ion-list>
+    <button (click) = "openPage(dining)" ion-item>
+      <ion-icon name="restaurant" item-left></ion-icon>
+      Dining
+    </button>
+
+    <button ion-item>
+      <ion-icon name="heart" item-left></ion-icon>
+      Parent Support Systems
+    </button>
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    Pediatric Intensive Care Unit
+  </ion-card-header>
+
+  <ion-list>
+    <button (click) = "openPage(commonProcedures)" ion-item>
+      <ion-icon name="medkit" item-left></ion-icon>
+      Common Procedures
+    </button>
+    <button ion-item>
+      <ion-icon name="people" item-left></ion-icon>
+      Types of Medical Providers
+    </button>
+
+    <button (click) = "openPage(guestPolicies)" ion-item>
+      <ion-icon name="clipboard" item-left></ion-icon>
+      Guest Policies
+    </button>
+
+  </ion-list>
+</ion-card>
 </ion-content>

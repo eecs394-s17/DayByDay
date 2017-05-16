@@ -14,7 +14,9 @@ import { NurseSendUpdate } from '../pages/nurse-send-update/nurse-send-update';
 import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
-import { CommonProcedures } from '../pages/commonProcedures/commonProcedures';
+import { CommonProcedures } from '../pages/hospitalInfo/commonProcedures/commonProcedures';
+import { Dining } from '../pages/hospitalInfo/dining/dining';
+import { GuestPolicies } from '../pages/hospitalInfo/guestPolicies/guestPolicies';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 
 
@@ -41,6 +43,8 @@ export const firebaseConfig = {
     HospitalInfo,
     Staff,
     CommonProcedures,
+    Dining,
+    GuestPolicies,
     NurseViewUpdates,
     NurseSendUpdate,
     SuiteSelection
@@ -54,15 +58,17 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    NurseHome,
     ParentHome,
+    NurseHome,
     SignIn,
     ModalContent,
     HospitalInfo,
     Staff,
+    CommonProcedures,
+    Dining,
+    GuestPolicies,
     NurseViewUpdates,
     NurseSendUpdate,
-    CommonProcedures,
     SuiteSelection
   ],
   providers: [

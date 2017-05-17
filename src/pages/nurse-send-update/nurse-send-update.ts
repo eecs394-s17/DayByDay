@@ -35,16 +35,17 @@ this.messageForm = new FormGroup({
                                   });
 }
 
-doSubmit(event) {
-event.preventDefault();
-if(this.messageForm.value.message != 'none') {
-this.updates.push({
-                   content: this.messageForm.value.message,
-                   child: this.messageForm.value.child,
-                   timestamp: 0 - new Date().getTime(),
-                   updateType: ""
+  doSubmit(event) {
+    event.preventDefault();
+    if(this.messageForm.value.message != 'none') {
+    this.updates.push({
+                       content: this.messageForm.value.message,
+                       child: this.messageForm.value.child,
+                       timestamp: 0 - new Date().getTime(),
+                       updateType: ""
 
-                   });
-}
-}
+                       });
+    }
+  }
+
 }

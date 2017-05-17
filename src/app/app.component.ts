@@ -10,6 +10,7 @@ import { SignIn } from '../pages/signIn/signIn';
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
+import { ChildManagement } from '../pages/child-management/child-management'
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +27,7 @@ export class MyApp {
       { title: 'Home', component: ParentHome },
       { title: 'Information', component: HospitalInfo },
       { title: 'Staff', component: Staff },
+      { title: 'Child Management', component: ChildManagement }
     ];
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -40,4 +42,3 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 }
-

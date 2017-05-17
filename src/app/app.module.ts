@@ -20,6 +20,7 @@ import { GuestPolicies } from '../pages/hospitalInfo/guestPolicies/guestPolicies
 import { ParentSupportSystems } from '../pages/hospitalInfo/parentSupportSystems/parentSupportSystems';
 import { TypesOfProviders } from '../pages/hospitalInfo/typesOfProviders/typesOfProviders';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
+import { ChildManagement } from '../pages/child-management/child-management'
 
 
 
@@ -52,7 +53,8 @@ export const firebaseConfig = {
     TypesOfProviders,
     NurseViewUpdates,
     NurseSendUpdate,
-    SuiteSelection
+    SuiteSelection,
+    ChildManagement
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ export const firebaseConfig = {
     TypesOfProviders,
     NurseViewUpdates,
     NurseSendUpdate,
-    SuiteSelection
+    SuiteSelection,
+    ChildManagement
   ],
   providers: [
     StatusBar,

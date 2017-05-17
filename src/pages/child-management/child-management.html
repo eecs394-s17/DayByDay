@@ -1,0 +1,102 @@
+<!--
+Generated template for the NurseSendUpdate page.
+
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Child management portal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-card>
+      <ion-card-header>
+        Add a child
+      </ion-card-header>
+      <ion-card-content>
+        <form (submit)="doSubmit($event)" [formGroup]="childForm">
+          <!-- <ion-grid>
+            <ion-row>
+              <ion-col></ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label>Pepperoni</ion-label>
+                  <ion-toggle formControlName="isActive"></ion-toggle>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid> -->
+
+          <ion-item color="secondary">
+            <ion-label color="primary">Active Occupant</ion-label>
+            <ion-toggle formControlName="isActive"></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" floating>Child</ion-label>
+              <ion-input type="text" placeholder="Child Name" formControlName="childName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary" floating>Parent</ion-label>
+              <ion-input type="text" placeholder="Parent Name" formControlName="parentName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Suite Number</ion-label>
+            <ion-select formControlName="suite">
+              <ion-option *ngFor="let suite of possibleSuites" value={{suite}}>{{suite}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
+              </ion-col>
+              <ion-col>
+                <button ion-button type="submit" block round>Add</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>
+
+
+
+<!-- <ion-content padding>
+  <form (submit)="doSubmit($event)" [formGroup]="messageForm">
+    <ion-item>
+      <ion-label>Child</ion-label>
+      <ion-select formControlName="child">
+      <ion-option *ngFor="let c of children | async" value={{c.name}}>
+      {{c.name}}
+      </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-list radio-group formControlName="message">
+      <ion-list-header>
+      Message
+      </ion-list-header>
+      <ion-item *ngFor="let m of messages | async">
+        <ion-label>{{m.message}}</ion-label>
+        <ion-radio value={{m.message}}></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button type="submit" block round>Send</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content> -->

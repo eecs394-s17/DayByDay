@@ -18,7 +18,7 @@ Ionic pages and navigation.
 <ion-item>
 <ion-label>Child</ion-label>
 <ion-select formControlName="child">
-<ion-option *ngFor="let c of children | async" value={{c.id}}>
+<ion-option *ngFor="let c of children | async" value={{c.name}}>
 {{c.name}}
 </ion-option>
 </ion-select>

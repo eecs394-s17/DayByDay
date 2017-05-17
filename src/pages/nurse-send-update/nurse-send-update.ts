@@ -20,6 +20,14 @@ updates: FirebaseListObservable<any>;
 messageForm;
 messages;
 children;
+attending;
+fellow;
+nurse;
+specialists;
+roundtimes;
+overnight;
+mood;
+other;
 
 constructor(public platform: Platform,
                    public viewCtrl: ViewController,
@@ -28,6 +36,15 @@ constructor(public platform: Platform,
 this.updates = db.list('/updates');
 this.messages = db.list('/messages');
 this.children = db.list('/children');
+this.attending = db.list('/staff/attending');
+this.fellow = db.list('/staff/fellow');
+this.nurse = db.list('/staff/nurse');
+this.specialists = db.list('/specialists');
+this.roundtimes = db.list('/roundtimes');
+this.overnight = db.list('/overnight');
+this.mood = db.list('/mood');
+this.other = db.list('/other');
+
 
 this.messageForm = new FormGroup({
                                   "child": new FormControl({value: 'none', disabled: false}),
@@ -35,6 +52,7 @@ this.messageForm = new FormGroup({
                                   });
 }
 
+//update this function to reflect new variable names
 doSubmit(event) {
 event.preventDefault();
 if(this.messageForm.value.message != 'none') {

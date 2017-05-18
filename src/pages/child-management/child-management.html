@@ -9,74 +9,8 @@
   </ion-navbar>
 </ion-header>
 
-<!-- <ion-content class="parentPage" padding>
-  <ion-list>
-  <ion-item *ngFor="let update of updates | async">
-    {{update.content}}
-  </ion-item>
-</ion-list>
-</ion-content> -->
 
 <ion-tabs class="tabs-icon-top tabs-positive" [color]="royal">
-  <ion-tab tabTitle="Send Update" tabIcon="add" [root]="sendUpdate"></ion-tab>
-  <!-- <ion-tab tabTitle="View Updates" tabIcon="eye" [root]="viewUpdates"></ion-tab> -->
+  <ion-tab tabTitle="Manage Child accounts" tabIcon="add" [root]="cud"></ion-tab>
+  <ion-tab tabTitle="View Child accounts" tabIcon="eye" [root]="read"></ion-tab>
 </ion-tabs>
-
-<!-- <ion-header>
-  <ion-navbar hideBackButton>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Child management portal</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-list>
-    <ion-card>
-      <ion-card-header>
-        Add a child
-      </ion-card-header>
-      <ion-card-content>
-        <form (submit)="doSubmit($event)" [formGroup]="childForm" id='AddForm'>
-
-          <ion-item color="secondary">
-            <ion-label color="primary">Active Occupant</ion-label>
-            <ion-toggle formControlName="isActive"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label color="primary" floating>Child</ion-label>
-              <ion-input type="text" placeholder="Child Name" formControlName="childName"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label color="primary" floating>Parent</ion-label>
-              <ion-input type="text" placeholder="Parent Name" formControlName="parentName"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label color="primary">Suite Number</ion-label>
-            <ion-select formControlName="suite">
-              <ion-option *ngFor="let suite of possibleSuites" value={{suite}}>{{suite}}</ion-option>
-            </ion-select>
-          </ion-item>
-
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
-              </ion-col>
-              <ion-col>
-                <button ion-button type="submit" block round>Add</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </form>
-      </ion-card-content>
-    </ion-card>
-
-  </ion-list>
-</ion-content>
-
-<ion-tabs class="tabs-icon-top tabs-positive" [color]="royal">
-  <ion-tab tabTitle="Send Update" tabIcon="add" ></ion-tab>
-  <ion-tab tabTitle="View Updates" tabIcon="eye" ></ion-tab>
-</ion-tabs> -->

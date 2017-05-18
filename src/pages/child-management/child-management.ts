@@ -4,6 +4,7 @@ import { Platform, ViewController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ChildCRUD } from '../child-crud/child-crud';
+import { ChildRead } from '../child-read/child-read';
 
 /**
 * Generated class for the ChildManagement page.
@@ -16,11 +17,11 @@ import { ChildCRUD } from '../child-crud/child-crud';
   templateUrl: 'child-management.html'
 })
 export class ChildManagement {
-    sendUpdate: any;
-    viewUpdates: any;
+    cud: any;
+    read: any;
   constructor() {
-    this.sendUpdate = ChildCRUD;
-    // this.viewUpdates = NurseViewUpdates ;
+    this.cud = ChildCRUD;
+    this.read = ChildRead ;
   }
 }
 

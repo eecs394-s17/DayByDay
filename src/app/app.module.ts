@@ -20,8 +20,9 @@ import { GuestPolicies } from '../pages/hospitalInfo/guestPolicies/guestPolicies
 import { ParentSupportSystems } from '../pages/hospitalInfo/parentSupportSystems/parentSupportSystems';
 import { TypesOfProviders } from '../pages/hospitalInfo/typesOfProviders/typesOfProviders';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
-import { ChildManagement } from '../pages/child-management/child-management'
-import { ChildCRUD } from '../pages/child-crud/child-crud'
+import { ChildManagement } from '../pages/child-management/child-management';
+import { ChildCRUD } from '../pages/child-crud/child-crud';
+import { ChildRead } from '../pages/child-read/child-read'
 
 
 
@@ -56,7 +57,8 @@ export const firebaseConfig = {
     NurseSendUpdate,
     SuiteSelection,
     ChildManagement,
-    ChildCRUD
+    ChildCRUD,
+    ChildRead
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ export const firebaseConfig = {
     NurseSendUpdate,
     SuiteSelection,
     ChildManagement,
-    ChildCRUD
+    ChildCRUD,
+    ChildRead
   ],
   providers: [
     StatusBar,

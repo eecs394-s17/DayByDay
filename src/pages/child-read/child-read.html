@@ -1,0 +1,34 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>View Children</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let child of children | async">
+      <ion-card>
+        <ion-card-header>
+          {{child.childName}}
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                Parent: {{child.parentName}}
+              </ion-col>
+              <ion-col>
+                Suite: {{child.suite}}
+              </ion-col>
+              <ion-col>
+                Active: {{child.isActive}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

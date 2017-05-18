@@ -21,6 +21,7 @@ import { ParentSupportSystems } from '../pages/hospitalInfo/parentSupportSystems
 import { TypesOfProviders } from '../pages/hospitalInfo/typesOfProviders/typesOfProviders';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 import { ChildManagement } from '../pages/child-management/child-management'
+import { ChildCRUD } from '../pages/child-crud/child-crud'
 
 
 
@@ -54,7 +55,8 @@ export const firebaseConfig = {
     NurseViewUpdates,
     NurseSendUpdate,
     SuiteSelection,
-    ChildManagement
+    ChildManagement,
+    ChildCRUD
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ export const firebaseConfig = {
     NurseViewUpdates,
     NurseSendUpdate,
     SuiteSelection,
-    ChildManagement
+    ChildManagement,
+    ChildCRUD
   ],
   providers: [
     StatusBar,

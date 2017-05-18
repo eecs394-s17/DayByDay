@@ -6,139 +6,139 @@ Ionic pages and navigation.
 -->
 <ion-header>
 
-<ion-navbar>
-<ion-title>nurseSendUpdate</ion-title>
-</ion-navbar>
+	<ion-navbar>
+		<ion-title>Send Updates</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<form (submit)="doSubmit($event)" [formGroup]="messageForm">
-<ion-item>
-<ion-label>Child</ion-label>
-<ion-select formControlName="child">
-<ion-option *ngFor="let c of children | async" value={{c.name}}>
-{{c.name}}
-</ion-option>
-</ion-select>
-</ion-item>
-<ion-list radio-group formControlName="message">
+	<form (submit)="doSubmit($event)" [formGroup]="messageForm">
+		<ion-item>
+			<ion-label>Child</ion-label>
+			<ion-select formControlName="child">
+				<ion-option *ngFor="let c of children | async" value={{c.name}}>
+					{{c.name}}
+				</ion-option>
+			</ion-select>
+		</ion-item>
+		<ion-list radio-group formControlName="message">
 
-<ion-row>
-	<ion-col width-40>
-	</ion-col>
-	<ion-col width-20>
-		<ion-segment>
-		    <ion-segment-button value="day">
-		      Day
-		    </ion-segment-button>
-		    <ion-segment-button value="night">
-		      Night
-		    </ion-segment-button>
-		  </ion-segment>
-	</ion-col>
-	<ion-col width-40>
-	</ion-col>
-</ion-row>
+			<ion-row>
+				<ion-col width-40>
+				</ion-col>
+				<ion-col width-20>
+					<ion-segment>
+						<ion-segment-button value="day">
+							Day
+						</ion-segment-button>
+						<ion-segment-button value="night">
+							Night
+						</ion-segment-button>
+					</ion-segment>
+				</ion-col>
+				<ion-col width-40>
+				</ion-col>
+			</ion-row>
 
-<ion-row>
-	<ion-col width-40>
-		<ion-card>
-		  <ion-card-header>
-		    Future Staff On Call
-		  </ion-card-header>
-		  <ion-card-content>
-		    Attending
-		    <ion-list radio-group>
-			<ion-item *ngFor="let a of attending | async">
-			<ion-label>{{a.name}}</ion-label>
-			<ion-radio value={{a.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
-			Fellow
-			<ion-list radio-group>
-			<ion-item *ngFor="let f of fellow | async">
-			<ion-label>{{f.name}}</ion-label>
-			<ion-radio value={{f.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
-			Nurse
-			<ion-list radio-group>
-			<ion-item *ngFor="let n of nurse | async">
-			<ion-label>{{n.name}}</ion-label>
-			<ion-radio value={{n.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
+			<ion-row>
+				<ion-col width-40>
+					<ion-card>
+						<ion-card-header>
+							Future Staff On Call
+						</ion-card-header>
+						<ion-card-content>
+							Attending
+							<ion-list radio-group>
+								<ion-item *ngFor="let a of attending | async">
+									<ion-label>{{a.name}}</ion-label>
+									<ion-radio value={{a.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
+							Fellow
+							<ion-list radio-group>
+								<ion-item *ngFor="let f of fellow | async">
+									<ion-label>{{f.name}}</ion-label>
+									<ion-radio value={{f.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
+							Nurse
+							<ion-list radio-group>
+								<ion-item *ngFor="let n of nurse | async">
+									<ion-label>{{n.name}}</ion-label>
+									<ion-radio value={{n.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
 
-		  </ion-card-content>
-		</ion-card>
-	</ion-col>
-	<ion-col width-40>
-		<ion-card>
-		  <ion-card-header>
-		    Past Child Updates
-		  </ion-card-header>
-		  <ion-card-content>
-		    
-			Specialists
-			<ion-list radio-group>
-			<ion-item *ngFor="let s of specialists | async">
-			<ion-label>{{s.name}}</ion-label>
-			<ion-radio value={{s.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+				<ion-col width-40>
+					<ion-card>
+						<ion-card-header>
+							Past Child Updates
+						</ion-card-header>
+						<ion-card-content>
 
-			Round Times
-			<ion-list radio-group>
-			<ion-item>
-			
-			</ion-item>
-			</ion-list>
-			Overnight
-			<ion-list radio-group>
-			<ion-item *ngFor="let o of overnight | async">
-			<ion-label>{{o.name}}</ion-label>
-			<ion-radio value={{o.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
-			Mood
-			<ion-list radio-group>
-			<ion-item *ngFor="let m of mood | async">
-			<ion-label>{{m.name}}</ion-label>
-			<ion-radio value={{m.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
-			Other
-			<ion-list radio-group>
-			<ion-item *ngFor="let o of other | async">
-			<ion-label>{{o.name}}</ion-label>
-			<ion-radio value={{o.name}}></ion-radio>
-			</ion-item>
-			</ion-list>
+							Specialists
+							<ion-list radio-group>
+								<ion-item *ngFor="let s of specialists | async">
+									<ion-label>{{s.name}}</ion-label>
+									<ion-radio value={{s.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
 
-		  </ion-card-content>
-		</ion-card>
-	</ion-col>
-</ion-row>
+							Round Times
+							<ion-list radio-group>
+								<ion-item>
 
+								</ion-item>
+							</ion-list>
+							Overnight
+							<ion-list radio-group>
+								<ion-item *ngFor="let o of overnight | async">
+									<ion-label>{{o.name}}</ion-label>
+									<ion-radio value={{o.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
+							Mood
+							<ion-list radio-group>
+								<ion-item *ngFor="let m of mood | async">
+									<ion-label>{{m.name}}</ion-label>
+									<ion-radio value={{m.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
+							Other
+							<ion-list radio-group>
+								<ion-item *ngFor="let o of other | async">
+									<ion-label>{{o.name}}</ion-label>
+									<ion-radio value={{o.name}}></ion-radio>
+								</ion-item>
+							</ion-list>
 
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
 
 
-<ion-row>
-	<ion-col width-40>
-	</ion-col>
-	<ion-col width-10>
-		<button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
-	</ion-col>
-	<ion-col width-10>
-		<button ion-button type="submit" block round>Send</button>
-	</ion-col>
-	<ion-col width-40>
-	</ion-col>
-</ion-row>
 
-</ion-list>
 
-</form>
+			<ion-row>
+				<ion-col width-40>
+				</ion-col>
+				<ion-col width-10>
+					<button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
+				</ion-col>
+				<ion-col width-10>
+					<button ion-button type="submit" block round>Send</button>
+				</ion-col>
+				<ion-col width-40>
+				</ion-col>
+			</ion-row>
+
+		</ion-list>
+
+	</form>
 </ion-content>

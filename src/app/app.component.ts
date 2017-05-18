@@ -27,7 +27,8 @@ export class MyApp {
       { title: 'Home', component: ParentHome },
       { title: 'Information', component: HospitalInfo },
       { title: 'Staff', component: Staff },
-      { title: 'Child Management', component: ChildManagement }
+      { title: 'Nurse Updates', component: NurseHome },
+      { title: 'Child Management', component: ChildManagement },
     ];
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

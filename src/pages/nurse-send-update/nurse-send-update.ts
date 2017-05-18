@@ -52,6 +52,9 @@ this.messageForm = new FormGroup({
                                   });
 }
 
+  dismiss(){
+
+  }
 //update this function to reflect new variable names
 
   doSubmit(event) {

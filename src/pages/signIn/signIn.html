@@ -10,7 +10,7 @@
 <ion-content padding>
   <ion-list>
       <ion-item ui-sref="nursePage">
-        <button (click) = "openNewRoot(suiteSelection)">I am a Nurse</button>
+        <button (click) = "openNewRoot(nurseHome)">I am a Nurse</button>
       </ion-item>
       <ion-item>
          <button (click) = "openNewRoot(parentHome)"> I am a Parent </button>
@@ -23,10 +23,10 @@
 
     <ion-item>
       <ion-label stacked>Email</ion-label>
-      <ion-input formControlName="email" type="email" placeholder="Your email address" 
+      <ion-input formControlName="email" type="email" placeholder="Your email address"
         [class.invalid]="!signinForm.controls.email.valid && signinForm.controls.email.dirty"></ion-input>
     </ion-item>
-    <ion-item class="error-message" 
+    <ion-item class="error-message"
       *ngIf="!signinForm.controls.email.valid  && signinForm.controls.email.dirty">
       <p>Please enter a valid email.</p>
     </ion-item>
@@ -36,7 +36,7 @@
       <ion-input formControlName="password" type="password" placeholder="Your password"
         [class.invalid]="!signinForm.controls.password.valid && signinForm.controls.password.dirty"></ion-input>
     </ion-item>
-    <ion-item class="error-message" 
+    <ion-item class="error-message"
       *ngIf="!signinForm.controls.password.valid  && signinForm.controls.password.dirty">
       <p>Your password needs more than 6 characters.</p>
     </ion-item>

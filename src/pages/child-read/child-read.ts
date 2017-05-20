@@ -14,26 +14,36 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
             templateUrl: 'child-read.html',
             })
 export class ChildRead {
-children: FirebaseListObservable<any>;
+  children: FirebaseListObservable<any>;
 
-constructor(public db: AngularFireDatabase) {
+  constructor(public db: AngularFireDatabase, public navCtrl: NavController) {
 
-  this.children = db.list('/children', {
-                           query: {
-                           orderByChild: 'childName'
-                           }
-                         });
+    this.children = db.list('/children', {
+                             query: {
+                             orderByChild: 'childName'
+                             }
+                           });
 
 
-  //reusable sort function creater
-  var sort_by = function(field, reverse, primer){
-    var key = function (x) {return primer ? primer(x[field]) : x[field]};
+    //reusable sort function creater
+    var sort_by = function(field, reverse, primer){
+      var key = function (x) {return primer ? primer(x[field]) : x[field]};
 
-    return function (a,b) {
-      var A = key(a), B = key(b);
-      return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];
+      return function (a,b) {
+        var A = key(a), B = key(b);
+        return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];
+      }
     }
+
+  }
+  // Navigate to the existing child editor upon clicking any child card on the child-read page
+  goToEditor(child){
+    // this.navCtrl.push(childEditor, {
+    //   key: child.$key,
+    //   childName: child.childName,
+    //   suite: child.suite,
+    //
+    // });
   }
 
-}
 }

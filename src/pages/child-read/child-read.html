@@ -9,9 +9,21 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let child of children | async">
-      <ion-card>
+      <ion-card (click)="goToEditor(child)">
         <ion-card-header>
-          {{child.childName}}
+          <ion-row>
+            <ion-col>
+              {{child.childName}}
+            </ion-col>
+            <ion-col>
+              <div *ngIf="child.isActive; else greycircle">
+                <img right-align src="assets/icon/isActive_circle.png" style= "max-width:20px;max-height:20px;"/>
+              </div>
+              <template #greycircle>
+                <img src="assets/icon/isNotActive_circle.png" style= "max-width:20px;max-height:20px;"/>
+              </template>
+            </ion-col>
+          </ion-row>
         </ion-card-header>
         <ion-card-content>
           <ion-grid>
@@ -21,9 +33,6 @@
               </ion-col>
               <ion-col>
                 Suite: {{child.suite}}
-              </ion-col>
-              <ion-col>
-                Active: {{child.isActive}}
               </ion-col>
             </ion-row>
           </ion-grid>

@@ -34,7 +34,7 @@ constructor(public platform: Platform,
   this.possibleSuites = [];
   var i;
   for (i = 0; i < this.hospitalCapacity; i++) {
-    this.possibleSuites.push(i);
+    this.possibleSuites.push(i+1);
   }
 
   this.childForm = new FormGroup({

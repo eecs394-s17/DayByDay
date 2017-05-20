@@ -1,10 +1,9 @@
-
 <ion-header>
-  <ion-navbar hideBackButton>
-    <button ion-button menuToggle>
+  <ion-navbar>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Child management portal</ion-title>
+    </button> -->
+    <ion-title>Edit child record</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,10 +11,10 @@
   <ion-list>
     <ion-card>
       <ion-card-header>
-        Add a child
+        Edit existing child record
       </ion-card-header>
       <ion-card-content>
-        <form (submit)="doSubmit($event)" [formGroup]="childForm" id='AddForm'>
+        <form (submit)="confirmEdit($event)" [formGroup]="childForm" id='EditForm'>
 
           <ion-item color="secondary">
             <ion-label color="primary">Active Occupant</ion-label>
@@ -42,7 +41,7 @@
                 <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
               </ion-col>
               <ion-col>
-                <button ion-button type="submit" block round>Add</button>
+                <button ion-button type="submit" block round>Submit</button>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -52,8 +51,3 @@
 
   </ion-list>
 </ion-content>
-
-<!-- <ion-tabs class="tabs-icon-top tabs-positive" [color]="royal">
-  <ion-tab tabTitle="Send Update" tabIcon="add" ></ion-tab>
-  <ion-tab tabTitle="View Updates" tabIcon="eye" ></ion-tab>
-</ion-tabs> -->

@@ -22,7 +22,9 @@ import { TypesOfProviders } from '../pages/hospitalInfo/typesOfProviders/typesOf
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 import { ChildManagement } from '../pages/child-management/child-management';
 import { ChildCRUD } from '../pages/child-crud/child-crud';
-import { ChildRead } from '../pages/child-read/child-read'
+import { ChildRead } from '../pages/child-read/child-read';
+import { ChildEditor } from '../pages/child-editor/child-editor';
+
 
 
 
@@ -58,7 +60,8 @@ export const firebaseConfig = {
     SuiteSelection,
     ChildManagement,
     ChildCRUD,
-    ChildRead
+    ChildRead,
+    ChildEditor
   ],
   imports: [
     BrowserModule,
@@ -85,7 +88,8 @@ export const firebaseConfig = {
     SuiteSelection,
     ChildManagement,
     ChildCRUD,
-    ChildRead
+    ChildRead,
+    ChildEditor,
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { ChildEditor } from '../child-editor/child-editor';
 
 /**
 * Generated class for the NurseViewUpdates page.
@@ -38,12 +39,14 @@ export class ChildRead {
   }
   // Navigate to the existing child editor upon clicking any child card on the child-read page
   goToEditor(child){
-    // this.navCtrl.push(childEditor, {
-    //   key: child.$key,
-    //   childName: child.childName,
-    //   suite: child.suite,
-    //
-    // });
+    console.log("Reached")
+    this.navCtrl.push(ChildEditor, {
+      key: child.$key,
+      childName: child.childName,
+      suite: child.suite,
+      parentName: child.parentName,
+      isActive: child.isActive
+    });
   }
 
 }

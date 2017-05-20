@@ -11,6 +11,8 @@ import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 import { ChildManagement } from '../pages/child-management/child-management'
+import { ChildEditor } from '../pages/child-editor/child-editor'
+
 
 @Component({
   templateUrl: 'app.html'

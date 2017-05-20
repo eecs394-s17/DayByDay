@@ -17,10 +17,10 @@ import { ChildRead } from '../child-read/child-read';
   templateUrl: 'child-management.html'
 })
 export class ChildManagement {
-    cud: any;
+    crud: any;
     read: any;
   constructor() {
-    this.cud = ChildCRUD;
+    this.crud = ChildCRUD;
     this.read = ChildRead ;
   }
 }

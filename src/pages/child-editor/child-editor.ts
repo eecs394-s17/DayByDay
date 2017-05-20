@@ -46,18 +46,43 @@ export class ChildEditor {
         this.viewCtrl.dismiss();
     }
 
+    confirmDelete(){
+      let confirm = this.alertCtrl.create({
+        title: 'Confirm Deletion',
+        message: 'Sure you want to DELETE the record? This cannot be undone later',
+        buttons: [
+          {
+            text: 'No',
+          },
+          {
+            text: 'Yes',
+            handler: () => {
+              event.preventDefault();
+                this.children.remove(this.key).then(
+                                   this.viewCtrl.dismiss()
+                                 );
+              console.log('User clicked confirm delete');
+            }
+          }
+        ]
+      });
+      confirm.present();
+    }
+
     confirmEdit(){
 
         let confirm = this.alertCtrl.create({
-          title: 'Sure you want to edit the record?',
-          message: 'The child record has been edited',
+          title: 'Confirm edits',
+          message: 'Sure you want to edit the record?',
           buttons: [
+            {
+              text: 'No',
+            },
             {
               text: 'Yes',
               handler: () => {
                 event.preventDefault();
                 if(this.childForm.value.message != 'none') {
-                  console.log(this.childForm.value.isActive)
                   this.children.update(this.key, {
                                      childName: this.childForm.value.childName,
                                      parentName: this.childForm.value.parentName,

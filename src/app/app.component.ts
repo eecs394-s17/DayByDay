@@ -43,7 +43,7 @@ export class MyApp {
       this.currentPage = data.component.name;
       if (this.currentPage === 'ParentHome') {
         this.pages = [
-          { title: 'Feed', component: ParentHome },
+          { title: 'Parent Feed', component: ParentHome },
           { title: 'Information', component: HospitalInfo },
           { title: 'Staff', component: Staff },
         ];

@@ -54,12 +54,14 @@ constructor(public platform: Platform,
                        suite: this.childForm.value.suite,
                        isActive: this.childForm.value.isActive,
                        timestamp: 0 - new Date().getTime()
-                       });
+                     }).then(() => {
+                       this.childForm.reset();
+                     });
     }
   }
 
   dismiss(){
-
+    this.childForm.reset();
   }
 
 }

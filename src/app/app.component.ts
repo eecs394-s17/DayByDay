@@ -23,7 +23,7 @@ export class MyApp {
   currentPage:any = SignIn;
   pages: Array<{title: string, component: any}>;
 
-  constructor(platform: Platform,
+  constructor(platform: Platform, 
       statusBar: StatusBar,
       splashScreen: SplashScreen,
       public menu: MenuController) {
@@ -41,12 +41,11 @@ export class MyApp {
   this.nav.viewDidEnter.subscribe((data) => {
   console.log(data);
       this.currentPage = data.component.name;
-      console.log(this.currentPage);
       if (this.currentPage === 'ParentHome') {
         this.pages = [
           { title: 'Feed', component: ParentHome },
+          { title: 'Information', component: HospitalInfo },
           { title: 'Staff', component: Staff },
-          { title: 'Nurse Updates', component: NurseHome },
         ];
       } else {
         this.pages = [

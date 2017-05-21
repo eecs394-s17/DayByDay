@@ -9,7 +9,7 @@
 <ion-content padding>
   <ion-list>
     <ion-item *ngFor="let child of children | async">
-      <ion-card (click)="goToEditor(child)">
+      <ion-card (click)="goToEditor(child)" style="background-color:lightyellow">
         <ion-card-header>
           <ion-row>
             <ion-col>

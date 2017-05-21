@@ -8,6 +8,7 @@ import { SuiteSelection } from '../suiteSelection/suiteSelection';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { EmailValidator } from '../../validators/email';
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'signIn.html'
@@ -23,7 +24,8 @@ export class SignIn {
 
   constructor(public db: AngularFireDatabase, public navCtrl: NavController,
       private auth: AuthService, public formBuilder: FormBuilder,
-      public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+      public alertCtrl: AlertController, public loadingCtrl: LoadingController,
+      private storage: Storage) {
 
     this.signinForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -41,7 +43,8 @@ export class SignIn {
       this.auth.signIn(this.signinForm.value.email, this.signinForm.value.password)
       .then( authData => {
         this.loading.dismiss().then( () => {
-          this.navCtrl.setRoot(ParentHome);
+            this.navCtrl.setRoot(ParentHome);
+            this.storage.set('type', 'parent');
         });
         console.log("success", authData);
       }, error => {
@@ -73,6 +76,11 @@ export class SignIn {
   }
 
   openNewRoot(page) {
+      if (page == NurseHome) {
+      this.storage.set('type', 'nurse');
+      } else {
+      this.storage.set('type', 'parent');
+        }
     this.navCtrl.setRoot(page);
   }
 

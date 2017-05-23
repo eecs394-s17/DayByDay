@@ -47,7 +47,8 @@ export class MyApp {
           { title: 'Information', component: HospitalInfo },
           { title: 'Staff', component: Staff },
         ];
-      } else {
+      // else if instead of else because we only want to change sidemenu based on initial homepage
+      } else if (this.currentPage === 'NurseHome') { 
         this.pages = [
           { title: 'Nurse Homepage', component: NurseHome },
           { title: 'Information', component: HospitalInfo },

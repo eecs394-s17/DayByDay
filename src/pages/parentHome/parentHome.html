@@ -9,10 +9,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="parentPage" padding>
+<ion-content class="parentPage">
+
   <ion-list>
-  <ion-item *ngFor="let update of updates | async">
-    {{update.content}}
-  </ion-item>
-</ion-list>
+    <ion-item *ngFor="let update of updates | async">
+      <ion-card>
+        <ion-card-content>
+          <p>{{update.content}}</p>
+          <ion-note class="right">{{timeConverter(-update.timestamp)}}</ion-note>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
 </ion-content> 
+  

@@ -1,7 +1,9 @@
 page-home {
 
 }
+
 .parentPage{
+/*
 	.item-inner{
 		background-color: #FDE3A7;
 		padding-left:20px;
@@ -11,4 +13,13 @@ page-home {
 		border-style:ridge;
 		border-width:2px;
 	}
+*/
+	.right {
+		float: right;
+	}
+	p {
+		white-space: normal;
+		color: black;
+	}
+	
 }

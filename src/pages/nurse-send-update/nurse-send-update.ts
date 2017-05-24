@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Platform, ViewController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { FormGroup, FormControl } from '@angular/forms';
+import { NurseHome } from '../nurseHome/nurseHome'
 
 /**
 * Generated class for the NurseSendUpdate page.
@@ -31,7 +32,8 @@ other;
 
 constructor(public platform: Platform,
                    public viewCtrl: ViewController,
-                   public db: AngularFireDatabase) {
+                   public db: AngularFireDatabase,
+                 public navCtrl: NavController) {
 
 this.updates = db.list('/updates');
 this.messages = db.list('/messages');
@@ -48,12 +50,19 @@ this.other = db.list('/other');
 
 this.messageForm = new FormGroup({
                                   "child": new FormControl({value: 'none', disabled: false}),
-                                  "message": new FormControl({value: 'none', disabled: false}),
+                                  "session": new FormControl({value: 'none', disabled: false}),
+                                  "attendingStaff": new FormControl({value: 'none', disabled: false}),
+                                  "fellowStaff": new FormControl({value: 'none', disabled: false}),
+                                  "nurseStaff": new FormControl({value: 'none', disabled: false}),
+                                  "Specialist": new FormControl({value: 'none', disabled: false}),
+                                  "Overnight": new FormControl({value: 'none', disabled: false}),
+                                  "Mood": new FormControl({value: 'none', disabled: false}),
+                                  "Other": new FormControl({value: 'none', disabled: false}),
                                   });
 }
 
   dismiss(){
-
+    this.messageForm.reset();
   }
 //update this function to reflect new variable names
 
@@ -61,12 +70,20 @@ this.messageForm = new FormGroup({
     event.preventDefault();
     if(this.messageForm.value.message != 'none') {
     this.updates.push({
-                       content: this.messageForm.value.message,
+                       session: this.messageForm.value.session,
                        child: this.messageForm.value.child,
                        timestamp: 0 - new Date().getTime(),
-                       updateType: ""
+                       mood: this.messageForm.value.Mood,
+                       Other: this.messageForm.value.Other,
+                       overnight: this.messageForm.value.Overnight,
+                       specialist: this.messageForm.value.Specialist,
+                       nurseStaff: this.messageForm.value.nurseStaff,
+                       fellowStaff: this.messageForm.value.fellowStaff,
+                       attendingStaff: this.messageForm.value.attendingStaff,
+                     }).then(()=> {
+                       this.navCtrl.setRoot(NurseHome);
+                     });
 
-                       });
     }
   }
 }

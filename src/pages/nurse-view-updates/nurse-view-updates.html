@@ -18,7 +18,8 @@ Ionic pages and navigation.
     <ion-item *ngFor="let update of updates | async">
       <ion-card>
         <ion-card-content>
-          <p>{{update.content}}</p>
+          <p>Session: {{update.session}}</p>
+          <p>Child: {{update.child}}</p>
           <ion-note class="right">{{timeConverter(-update.timestamp)}}</ion-note>
         </ion-card-content>
       </ion-card>

@@ -7,6 +7,7 @@ import {HospitalInfo} from '../pages/hospitalInfo/hospitalInfo';
 import { ParentHome } from '../pages/parentHome/parentHome';
 import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { SignIn } from '../pages/signIn/signIn';
+import { SignupPage } from '../pages/SignupPage/SignupPage'
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
@@ -23,7 +24,7 @@ export class MyApp {
   currentPage:any = SignIn;
   pages: Array<{title: string, component: any}>;
 
-  constructor(platform: Platform, 
+  constructor(platform: Platform,
       statusBar: StatusBar,
       splashScreen: SplashScreen,
       public menu: MenuController) {
@@ -48,7 +49,7 @@ export class MyApp {
           { title: 'Staff', component: Staff },
         ];
       // else if instead of else because we only want to change sidemenu based on initial homepage
-      } else if (this.currentPage === 'NurseHome') { 
+      } else if (this.currentPage === 'NurseHome') {
         this.pages = [
           { title: 'Nurse Homepage', component: NurseHome },
           { title: 'Information', component: HospitalInfo },

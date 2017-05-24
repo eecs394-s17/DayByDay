@@ -13,6 +13,7 @@ import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { NurseViewUpdates } from '../pages/nurse-view-updates/nurse-view-updates';
 import { NurseSendUpdate } from '../pages/nurse-send-update/nurse-send-update';
 import { SignIn } from '../pages/signIn/signIn';
+import { SignupPage } from '../pages/SignupPage/SignupPage'
 import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
 import { CommonProcedures } from '../pages/hospitalInfo/commonProcedures/commonProcedures';
@@ -48,6 +49,7 @@ export const firebaseConfig = {
     ParentHome,
     NurseHome,
     SignIn,
+    SignupPage,
     ModalContent,
     HospitalInfo,
     Staff,
@@ -62,7 +64,7 @@ export const firebaseConfig = {
     ChildManagement,
     ChildCRUD,
     ChildRead,
-    ChildEditor
+    ChildEditor,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,7 @@ export const firebaseConfig = {
     ParentHome,
     NurseHome,
     SignIn,
+    SignupPage,
     ModalContent,
     HospitalInfo,
     Staff,

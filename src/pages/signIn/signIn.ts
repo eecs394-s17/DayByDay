@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, Loading, LoadingController } from 'ionic-angular';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParentHome } from '../parentHome/parentHome';
 import { NurseHome } from '../nurseHome/nurseHome';
@@ -9,17 +9,18 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { EmailValidator } from '../../validators/email';
 import { Storage } from '@ionic/storage';
+import { SignupPage } from '../SignupPage/SignupPage'
 
 @Component({
   templateUrl: 'signIn.html'
-
 })
+
 export class SignIn {
   nurseHome = NurseHome;
   parentHome = ParentHome;
   suiteSelection = SuiteSelection;
 
-  public signinForm:FormGroup;  
+  public signinForm:FormGroup;
   public loading:Loading;
 
   constructor(public db: AngularFireDatabase, public navCtrl: NavController,
@@ -38,6 +39,16 @@ export class SignIn {
     // this.auth.signIn();
 
     if (!this.signinForm.valid){
+      let alert = this.alertCtrl.create({
+        message: "Invalid Email or Password",
+        buttons: [
+          {
+            text: "dismiss",
+            role: 'cancel'
+          }
+        ]
+      });
+      alert.present();
       console.log(this.signinForm.value);
     } else {
       this.auth.signIn(this.signinForm.value.email, this.signinForm.value.password)
@@ -58,7 +69,7 @@ export class SignIn {
               }
             ]
           });
-          alert.present();          
+          alert.present();
         });
       });
 
@@ -68,7 +79,7 @@ export class SignIn {
   }
 
   goToSignup(){
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.push(SignupPage);
   }
 
   goToResetPassword(){

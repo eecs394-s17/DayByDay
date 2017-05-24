@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Sign Up
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="signupForm" (submit)="signupComplete()" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Parent Name</ion-label>
+      <ion-input formControlName="parentName" placeholder="Jane doe"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="janedoe@gmail.com"
+        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message"
+      *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message"
+      *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Confirm Password</ion-label>
+      <ion-input formControlName="confirmPassword" type="password" placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty && signupForm.hasError('passwordMismatch') && signupForm.controls.password.valid"></ion-input>
+    </ion-item>
+    <!-- <ion-item class="error-message"
+      *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Passwords need to match</p>
+    </ion-item> -->
+    <ion-item class='error-message' *ngIf="signupForm.controls.confirmPassword.touched && signupForm.hasError('passwordMismatch') && signupForm.controls.password.valid">
+        <ion-label no-margin stacked>Passwords do not match</ion-label>
+    </ion-item>
+
+    <br />
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button block type="submit">
+            Sign Up
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block color="light" (click)="clearForm()">
+            Clear
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+
+  </form>
+
+</ion-content>

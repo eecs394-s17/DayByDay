@@ -32,4 +32,23 @@ export class AuthService {
     return this.afAuth.auth.signOut();
   }
 
+  signup(email: string, password: string, parentName): firebase.Promise<any> {
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then((newUser) => {
+      firebase.database().ref('/Users').child(newUser.uid).push({
+        email: email,
+        parentName: parentName,
+        type: 'parent',
+      });
+    });
+  }
+
+  resetPassword(email: string): firebase.Promise<any> {
+    return firebase.auth().sendPasswordResetEmail(email);
+  }
+
+  getFirebaseId() {
+    //console.log(firebase.auth().currentUser.uid);
+    return firebase.auth().currentUser.uid;
+  }
+
 }

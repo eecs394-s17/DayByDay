@@ -60,6 +60,42 @@ export class SignupPage {
 
   signupComplete(){
     console.log("Sign up implemented here")
+    if (!this.signupForm.valid){
+      let alert = this.alertCtrl.create({
+        message: "Invalid entries",
+        buttons: [
+          {
+            text: "dismiss",
+            role: 'cancel'
+          }
+        ]
+      });
+      alert.present();
+      console.log(this.signupForm.value);
+    } else {
+      this.auth.signup(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.parentName)
+      .then( authData => {
+        this.loading.dismiss()
+        this.navCtrl.setRoot(SignIn);
+      }, error => {
+        this.loading.dismiss().then( () => {
+          let alert = this.alertCtrl.create({
+            message: error.message,
+            buttons: [
+              {
+                text: "Ok",
+                role: 'cancel'
+              }
+            ]
+          });
+          alert.present();
+        });
+      });
+
+      this.loading = this.loadingCtrl.create();
+      this.loading.present();
+    }
+
   }
 
   clearForm(){

@@ -17,7 +17,7 @@
 
 
 <ion-content >
-	<ion-list class="list-avatar-page" padding>
+	<!-- <ion-list class="list-avatar-page" padding>
 		<ion-list-header>Current Care Team</ion-list-header>
 		<ion-item>
       		<ion-avatar item-left>
@@ -35,25 +35,35 @@
       		<p>Other Title</p>
       		<ion-note item-right>7am - 7pm</ion-note>
     	</ion-item>
-	</ion-list>
+	</ion-list> -->
 
   <ion-list class="list-avatar-page" padding>
     <ion-list-header>Full Staff</ion-list-header>
-    <ion-item>
+    <ion-item *ngFor="let attender of attendingStaff | async">
           <ion-avatar item-left>
             <img src="assets/img/example-nurse.jpeg">
           </ion-avatar>
-          <h2>Ms. Nurse</h2>
-          <p>Head Nurse</p>
+          <h2>{{attender.name}}</h2>
+          <p>Attending staff</p>
           <ion-note item-right>7am - 7pm</ion-note>
-      </ion-item>
-      <ion-item>
-          <ion-avatar item-left>
-            <img src="assets/img/example-nurse-2.jpg">
-          </ion-avatar>
-          <h2>Mr. Nurse</h2>
-          <p>Other Title</p>
-          <ion-note item-right>7am - 7pm</ion-note>
-      </ion-item>
+    </ion-item>
+
+    <ion-item *ngFor="let nurse of nurseStaff | async">
+        <ion-avatar item-left>
+          <img src="assets/img/example-nurse-2.jpg">
+        </ion-avatar>
+        <h2>{{nurse.name}}</h2>
+        <p>Nurse</p>
+        <ion-note item-right>7am - 7pm</ion-note>
+    </ion-item>
+
+    <ion-item *ngFor="let fellow of fellowStaff | async">
+        <ion-avatar item-left>
+          <img src="assets/img/example-nurse-2.jpg">
+        </ion-avatar>
+        <h2>{{fellow.name}}</h2>
+        <p>Fellow</p>
+        <ion-note item-right>7am - 7pm</ion-note>
+    </ion-item>
   </ion-list>
 </ion-content>

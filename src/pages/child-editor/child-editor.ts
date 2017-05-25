@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform, IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { FormGroup, FormControl } from '@angular/forms';
+import * as firebase from 'firebase/app';
 
 
 @IonicPage()
@@ -20,6 +21,8 @@ export class ChildEditor {
     possibleSuites;
     hospitalCapacity = 40;
     parentEmails;
+    users;
+    uid;
 
     constructor(public platform: Platform, public viewCtrl: ViewController, public navCtrl: NavController, public params: NavParams, public alertCtrl: AlertController, public db: AngularFireDatabase) {
 
@@ -37,6 +40,8 @@ export class ChildEditor {
         this.suite = params.get("suite");
         this.isActive = params.get("isActive")
         this.parentEmail = params.get("parentEmail")
+
+        this.users = firebase.database().ref('/users').orderByChild;
 
         this.childForm = new FormGroup({
                                           "childName": new FormControl({value: this.childName, disabled: false}),
@@ -88,10 +93,20 @@ export class ChildEditor {
               handler: () => {
                 event.preventDefault();
                 if(this.childForm.value.message != 'none') {
+                  var childcrud = this;
+                  var matchingUsers = firebase.database().ref('/users')
+                  .orderByChild('email')
+                  .equalTo(childcrud.childForm.value.parentEmail)
+                  matchingUsers.on("value", function(snapshot){
+                    for(var i in snapshot.val()){
+                      childcrud.uid = snapshot.val()[i].UID;
+                    }
+                  })
                   this.children.update(this.key, {
                                      childName: this.childForm.value.childName,
                                      parentName: this.childForm.value.parentName,
                                      parentEmail: this.childForm.value.parentEmail,
+                                     parentUID: this.uid,
                                      suite: this.childForm.value.suite,
                                      isActive: this.childForm.value.isActive,
                                      timestamp: 0 - new Date().getTime()

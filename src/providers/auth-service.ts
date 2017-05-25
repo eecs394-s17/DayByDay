@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   resetPassword(email: string): firebase.Promise<any> {
-    return firebase.auth().sendPasswordResetEmail(email);
+    return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
   getFirebaseId() {

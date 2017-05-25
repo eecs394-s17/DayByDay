@@ -34,10 +34,11 @@ export class AuthService {
 
   signup(email: string, password: string, parentName): firebase.Promise<any> {
     return firebase.auth().createUserWithEmailAndPassword(email, password).then((newUser) => {
-      firebase.database().ref('/Users').child(newUser.uid).push({
+      firebase.database().ref('/users').push({
         email: email,
         parentName: parentName,
         type: 'parent',
+        UID: newUser.uid,
       });
     });
   }

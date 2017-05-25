@@ -14,14 +14,17 @@ export class ChildEditor {
     public parentName;
     public suite;
     public isActive;
+    public parentEmail;
     children;
     childForm;
     possibleSuites;
-    hospitalCapacity = 40
+    hospitalCapacity = 40;
+    parentEmails;
 
     constructor(public platform: Platform, public viewCtrl: ViewController, public navCtrl: NavController, public params: NavParams, public alertCtrl: AlertController, public db: AngularFireDatabase) {
 
         this.children = db.list('/children');
+        this.parentEmails = db.list('users');
         this.possibleSuites = [];
         var i;
         for (i = 0; i < this.hospitalCapacity; i++) {
@@ -33,12 +36,14 @@ export class ChildEditor {
         this.parentName = params.get("parentName");
         this.suite = params.get("suite");
         this.isActive = params.get("isActive")
+        this.parentEmail = params.get("parentEmail")
 
         this.childForm = new FormGroup({
                                           "childName": new FormControl({value: this.childName, disabled: false}),
                                           "suite": new FormControl({value: this.suite, disabled: false}),
                                           "parentName": new FormControl({value: this.parentName, disabled: false}),
                                           "isActive": new FormControl({value: this.isActive, disabled: false}),
+                                          "parentEmail": new FormControl({value: this.parentEmail, disabled: false}),
                                           });
 
     }
@@ -86,6 +91,7 @@ export class ChildEditor {
                   this.children.update(this.key, {
                                      childName: this.childForm.value.childName,
                                      parentName: this.childForm.value.parentName,
+                                     parentEmail: this.childForm.value.parentEmail,
                                      suite: this.childForm.value.suite,
                                      isActive: this.childForm.value.isActive,
                                      timestamp: 0 - new Date().getTime()

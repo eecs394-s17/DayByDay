@@ -22,6 +22,7 @@ messages;
 children;
 possibleSuites: any;
 hospitalCapacity = 40;
+parentEmails;
 
 constructor(public platform: Platform,
                    public viewCtrl: ViewController,
@@ -30,6 +31,7 @@ constructor(public platform: Platform,
   this.updates = db.list('/updates');
   this.messages = db.list('/messages');
   this.children = db.list('/children');
+  this.parentEmails = db.list('/users');
 
   this.possibleSuites = [];
   var i;
@@ -42,6 +44,7 @@ constructor(public platform: Platform,
                                     "suite": new FormControl({value: -1, disabled: false}),
                                     "parentName": new FormControl({value: "", disabled: false}),
                                     "isActive": new FormControl({value: false, disabled: false}),
+                                    "parentEmail": new FormControl({value: false, disabled: false}),
                                     });
   }
 
@@ -51,6 +54,7 @@ constructor(public platform: Platform,
     this.children.push({
                        childName: this.childForm.value.childName,
                        parentName: this.childForm.value.parentName,
+                       parentEmail: this.childForm.value.parentEmail,
                        suite: this.childForm.value.suite,
                        isActive: this.childForm.value.isActive,
                        timestamp: 0 - new Date().getTime()

@@ -30,6 +30,13 @@
               <ion-input type="text" placeholder="Parent Name" formControlName="parentName"></ion-input>
           </ion-item>
           <ion-item>
+            <ion-label color="primary">Parent Email</ion-label>
+            <ion-select formControlName="parentEmail">
+              <ion-option *ngFor="let parentEmail of parentEmails | async" value={{parentEmail.email}}>{{parentEmail.email}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
             <ion-label color="primary">Suite Number</ion-label>
             <ion-select formControlName="suite">
               <ion-option *ngFor="let suite of possibleSuites" value={{suite}}>{{suite}}</ion-option>

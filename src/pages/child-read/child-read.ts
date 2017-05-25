@@ -45,7 +45,8 @@ export class ChildRead {
       childName: child.childName,
       suite: child.suite,
       parentName: child.parentName,
-      isActive: child.isActive
+      isActive: child.isActive,
+      parentEmail: child.parentEmail,
     });
   }
 

@@ -9,7 +9,8 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { EmailValidator } from '../../validators/email';
 import { Storage } from '@ionic/storage';
-import { SignupPage } from '../SignupPage/SignupPage'
+import { SignupPage } from '../SignupPage/SignupPage';
+import { PasswordReset } from '../password-reset/password-reset';
 
 @Component({
   templateUrl: 'signIn.html'
@@ -83,7 +84,7 @@ export class SignIn {
   }
 
   goToResetPassword(){
-    this.navCtrl.push('PasswordResetPage');
+    this.navCtrl.push(PasswordReset);
   }
 
   openNewRoot(page) {

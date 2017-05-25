@@ -11,6 +11,7 @@ import { EmailValidator } from '../../validators/email';
 import { Storage } from '@ionic/storage';
 import { SignupPage } from '../SignupPage/SignupPage';
 import { PasswordReset } from '../password-reset/password-reset';
+import * as firebase from 'firebase/app';
 
 @Component({
   templateUrl: 'signIn.html'
@@ -50,12 +51,40 @@ export class SignIn {
         ]
       });
       alert.present();
-      console.log(this.signinForm.value);
-    } else {
+    } 
+    else {
+
+      var isParent;
+      var ref =firebase.database().ref('/users');
+
       this.auth.signIn(this.signinForm.value.email, this.signinForm.value.password)
       .then( authData => {
         this.loading.dismiss().then( () => {
-            this.navCtrl.setRoot(ParentHome);
+          var signin=this;
+          ref.on("value", function(snapshot){
+          console.log( "HERE");
+          var j;
+          for(var i in snapshot.val()){
+            console.log(snapshot.val()[i].email)
+            if(snapshot.val()[i].email==signin.signinForm.value.email){
+              j=snapshot.val()[i].type;
+            }
+          }
+          if(j==="parent"){
+            console.log("jset to parent");
+            isParent= true;
+            signin.navCtrl.setRoot(ParentHome);
+
+          }
+          else{
+            console.log("jset to nurse")
+            signin.navCtrl.setRoot(NurseHome); 
+            isParent=false;
+    
+          }
+         
+        })  
+           
             this.storage.set('type', 'parent');
         });
         console.log("success", authData);

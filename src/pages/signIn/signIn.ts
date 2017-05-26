@@ -51,40 +51,33 @@ export class SignIn {
         ]
       });
       alert.present();
-    } 
+    }
     else {
 
-      var isParent;
+      // var isParent;
       var ref =firebase.database().ref('/users');
 
       this.auth.signIn(this.signinForm.value.email, this.signinForm.value.password)
       .then( authData => {
         this.loading.dismiss().then( () => {
-          var signin=this;
+          var signin = this;
           ref.on("value", function(snapshot){
-          console.log( "HERE");
-          var j;
+          var usertype;
           for(var i in snapshot.val()){
             console.log(snapshot.val()[i].email)
             if(snapshot.val()[i].email==signin.signinForm.value.email){
-              j=snapshot.val()[i].type;
+              usertype=snapshot.val()[i].type;
             }
           }
-          if(j==="parent"){
-            console.log("jset to parent");
-            isParent= true;
+          if(usertype==="parent"){
             signin.navCtrl.setRoot(ParentHome);
-
           }
           else{
-            console.log("jset to nurse")
-            signin.navCtrl.setRoot(NurseHome); 
-            isParent=false;
-    
+            signin.navCtrl.setRoot(NurseHome);
           }
-         
-        })  
-           
+
+        })
+
             this.storage.set('type', 'parent');
         });
         console.log("success", authData);

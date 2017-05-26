@@ -15,12 +15,19 @@
     <ion-item *ngFor="let update of updates | async">
       <ion-card>
         <ion-card-content>
-          <p>{{update.content}}</p>
+          <p *ngIf="update.session != 'none';">Session: {{update.session}}</p>
+          <p *ngIf="update.child != 'none';">Child: {{update.child}}</p>
+          <p *ngIf="update.mood != 'none';">Mood: {{update.mood}}</p>
+          <p *ngIf="update.attendingStaff != 'none';">Attending staff: {{update.attendingStaff}}</p>
+          <p *ngIf="update.nurseStaff != 'none';">On duty nurse: {{update.nurseStaff}}</p>
+          <p *ngIf="update.specialist != 'none';">Specialist: {{update.specialist}}</p>
+          <p *ngIf="update.fellowStaff != 'none';">Fellow: {{update.fellowStaff}}</p>
+          <p *ngIf="update.overnight != 'none';">Overnight update: {{update.overnight}}</p>
+          <p *ngIf="update.Other != 'none';">Other updates: {{update.Other}}</p>
           <ion-note class="right">{{timeConverter(-update.timestamp)}}</ion-note>
         </ion-card-content>
       </ion-card>
     </ion-item>
   </ion-list>
 
-</ion-content> 
-  
+</ion-content>

@@ -112,13 +112,14 @@ export class SignIn {
     this.navCtrl.push(PasswordReset);
   }
 
-  openNewRoot(page) {
-      if (page == NurseHome) {
-      this.storage.set('type', 'nurse');
-      } else {
-      this.storage.set('type', 'parent');
-        }
-    this.navCtrl.setRoot(page);
-  }
+  // Used for quick testing of views for different user types (parent, nurse), without actual user accounts
+  // openNewRoot(page) {
+  //     if (page == NurseHome) {
+  //     this.storage.set('type', 'nurse');
+  //     } else {
+  //     this.storage.set('type', 'parent');
+  //       }
+  //   this.navCtrl.setRoot(page);
+  // }
 
 }

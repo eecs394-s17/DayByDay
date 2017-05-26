@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform, IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { FormGroup, FormControl } from '@angular/forms';
 import * as firebase from 'firebase/app';
 

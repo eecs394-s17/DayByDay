@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar hideBackButton>
+  <ion-navbar >
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -13,10 +13,12 @@
 
   <ion-list>
     <ion-item *ngFor="let update of updates | async">
-      <ion-card>
+      <ion-card *ngIf="update.child == mychild;">
+        <ion-card-header>
+          <p *ngIf="update.child != 'none';">Child: {{update.child}}</p>
+        </ion-card-header>
         <ion-card-content>
           <p *ngIf="update.session != 'none';">Session: {{update.session}}</p>
-          <p *ngIf="update.child != 'none';">Child: {{update.child}}</p>
           <p *ngIf="update.mood != 'none';">Mood: {{update.mood}}</p>
           <p *ngIf="update.attendingStaff != 'none';">Attending staff: {{update.attendingStaff}}</p>
           <p *ngIf="update.nurseStaff != 'none';">On duty nurse: {{update.nurseStaff}}</p>

@@ -70,7 +70,10 @@ export class SignIn {
             }
           }
           if(usertype==="parent"){
-            signin.navCtrl.setRoot(ParentHome);
+            // signin.navCtrl.setRoot(ParentHome);
+            signin.navCtrl.setRoot(ParentHome, {
+              foreignKey: signin.signinForm.value.email,
+            });
           }
           else{
             signin.navCtrl.setRoot(NurseHome);

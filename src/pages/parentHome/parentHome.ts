@@ -1,6 +1,7 @@
-import {Component} from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import { Component } from '@angular/core';
+import { NavController, AlertController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
 
 @Component({
   templateUrl: 'parentHome.html'
@@ -8,15 +9,31 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 export class ParentHome {
   updates: FirebaseListObservable<any>;
   processedUpdates: any;
+  foreignKey: any;
+  matchChild: any;
+  mychild: any;
 
-  constructor(public alertCtrl: AlertController, public db: AngularFireDatabase) {
+  constructor(public alertCtrl: AlertController, public db: AngularFireDatabase, public params: NavParams) {
       this.updates = db.list('/updates', {
         query: {
           orderByChild: 'timestamp'
         }
       });
+
+      // foreign key is the parent email
+      this.foreignKey = params.get("foreignKey");
+      // console.log("myemail",this.foreignKey)
+      var parenthome = this;
+      this.matchChild = firebase.database().ref('/children')
+      .orderByChild("parentEmail")
+      .equalTo(parenthome.foreignKey)
+      this.matchChild.on("value", function(snapshot){
+        for(var i in snapshot.val()){
+          parenthome.mychild = snapshot.val()[i].childName;
+        }
+      })
     }
-    
+
 
     timeConverter(UNIX_timestamp){
       var a = new Date(UNIX_timestamp);
@@ -65,5 +82,5 @@ export class ParentHome {
     }
     */
 
-  
+
 }

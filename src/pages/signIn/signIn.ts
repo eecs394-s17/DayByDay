@@ -28,7 +28,9 @@ export class SignIn {
   constructor(public db: AngularFireDatabase, public navCtrl: NavController,
       private auth: AuthService, public formBuilder: FormBuilder,
       public alertCtrl: AlertController, public loadingCtrl: LoadingController,
-      private storage: Storage) {
+      private storage: Storage, public menuCtrl: MenuController) {
+
+    this.menuCtrl.enable(false, 'myMenu');
 
     this.signinForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],

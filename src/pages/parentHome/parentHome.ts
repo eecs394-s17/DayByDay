@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, AlertController, NavParams, MenuController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { SignIn } from '../signIn/signIn';
 import * as firebase from 'firebase/app';
@@ -20,7 +20,10 @@ export class ParentHome {
       public db: AngularFireDatabase,
       public params: NavParams,
       public navCtrl: NavController,
-      private auth: AuthService) {
+      private auth: AuthService,
+      public menuCtrl: MenuController) {
+      this.menuCtrl.enable(true, 'myMenu');
+
       this.updates = db.list('/updates', {
         query: {
           orderByChild: 'timestamp'

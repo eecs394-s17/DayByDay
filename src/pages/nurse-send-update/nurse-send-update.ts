@@ -86,4 +86,21 @@ this.messageForm = new FormGroup({
 
     }
   }
+
+  selectedDay(){
+    var x = document.getElementsByClassName("colorDayNight");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].setAttribute("style","background-color:#FEC83E");
+    }
+  }
+
+  selectedNight(){
+    var x = document.getElementsByClassName("colorDayNight");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].setAttribute("style","background-color:#90CAF8");
+    }
+  }
+
 }

@@ -27,8 +27,9 @@ import { ChildManagement } from '../pages/child-management/child-management';
 import { ChildCRUD } from '../pages/child-crud/child-crud';
 import { ChildRead } from '../pages/child-read/child-read';
 import { ChildEditor } from '../pages/child-editor/child-editor';
-
-
+import { staffRead } from '../pages/staff-read/staff-read';
+import { staffAdd } from '../pages/staff-add/staff-add'
+import { staffEditor } from '../pages/staff-editor/staff-editor'
 
 
 import { AngularFireModule } from 'angularfire2';
@@ -67,6 +68,9 @@ export const firebaseConfig = {
     ChildCRUD,
     ChildRead,
     ChildEditor,
+    staffRead,
+    staffAdd,
+    staffEditor,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +102,9 @@ export const firebaseConfig = {
     ChildCRUD,
     ChildRead,
     ChildEditor,
+    staffRead,
+    staffAdd,
+    staffEditor,
   ],
   providers: [
     StatusBar,

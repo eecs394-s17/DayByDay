@@ -1,0 +1,57 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Staff management system</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <br />
+  <br />
+  <br />
+  <ion-list>
+    <ion-card>
+      <ion-card-header style="background-color:#3498db">
+        <h1 style="color: white">Add a staff member</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <form (submit)="doSubmit($event)" [formGroup]="staffForm" id='AddForm'>
+
+          <ion-item>
+            <ion-label color="primary" floating>Name</ion-label>
+              <ion-input type="text" placeholder="Name" formControlName="staffName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" stacked>Staff type</ion-label>
+            <ion-select formControlName="staffType">
+              <ion-option *ngFor="let type of stafftypes | async" value={{type.$key}}>{{type.$key}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
+              </ion-col>
+              <ion-col>
+                <button ion-button type="submit" block round>Add</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>
+
+<!-- <ion-tabs class="tabs-icon-top tabs-positive" [color]="royal">
+  <ion-tab tabTitle="Send Update" tabIcon="add" ></ion-tab>
+  <ion-tab tabTitle="View Updates" tabIcon="eye" ></ion-tab>
+</ion-tabs> -->

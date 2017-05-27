@@ -13,6 +13,9 @@ import { Staff } from '../pages/staff/staff';
 import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 import { ChildManagement } from '../pages/child-management/child-management'
 import { ChildEditor } from '../pages/child-editor/child-editor'
+import { staffRead } from '../pages/staff-read/staff-read'
+import { staffAdd } from '../pages/staff-add/staff-add'
+import { staffEditor } from '../pages/staff-editor/staff-editor'
 
 
 @Component({
@@ -54,6 +57,7 @@ export class MyApp {
           { title: 'Nurse Homepage', component: NurseHome },
           { title: 'Information', component: HospitalInfo },
           { title: 'Staff', component: Staff },
+          { title: 'Staff Management', component: staffRead},
           { title: 'Child Management', component: ChildManagement },
         ];
       }

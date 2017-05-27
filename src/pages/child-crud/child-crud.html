@@ -11,9 +11,10 @@
 <ion-content padding>
   <ion-list>
     <ion-card>
-      <ion-card-header>
-        Add a child
+      <ion-card-header style="background-color:#3498db">
+        <h1 style="color: white">Add a child</h1>
       </ion-card-header>
+      <br />
       <ion-card-content>
         <form (submit)="doSubmit($event)" [formGroup]="childForm" id='AddForm'>
 

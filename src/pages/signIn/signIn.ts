@@ -87,7 +87,7 @@ export class SignIn {
       }, error => {
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({
-            message: error.message,
+            message: "Invalid login credentials",
             buttons: [
               {
                 text: "Ok",

@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Staff management system</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-card>
+      <ion-card-header style="background-color:#3498db">
+        <h1 style="color: white">Edit staff record</h1>
+      </ion-card-header>
+      <ion-card-content>
+        <form (submit)="confirmEdit($event)" [formGroup]="staffForm" id='EditForm'>
+
+
+          <ion-item>
+            <ion-label color="primary" floating>Name</ion-label>
+              <ion-input type="text" placeholder="Name" formControlName="staffName"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" stacked>Staff type</ion-label>
+            <ion-select formControlName="staffType">
+              <ion-option *ngFor="let type of staffTypes | async" value={{type.$key}}>{{type.$key}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <button ion-button (click)="confirmDelete()" type="button" style="background-color:red" block round>Delete</button>
+              </ion-col>
+              <ion-col>
+                <button ion-button (click)="dismiss()" type="button" color="light" block round>Cancel</button>
+              </ion-col>
+              <ion-col>
+                <button ion-button type="submit" block round>Submit</button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-list>
+</ion-content>

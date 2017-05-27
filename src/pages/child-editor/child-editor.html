@@ -1,18 +1,20 @@
 <ion-header>
-  <ion-navbar>
-    <!-- <button ion-button menuToggle>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button> -->
-    <ion-title>Edit child record</ion-title>
+    </button>
+    <ion-title>Child management portal</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <ion-card>
-      <ion-card-header>
-        Edit existing child record
+    <ion-card >
+      <ion-card-header style="background-color:#3498db">
+        <h1 style="color: white">Edit existing child record</h1>
       </ion-card-header>
+
+      <br />
       <ion-card-content>
         <form (submit)="confirmEdit($event)" [formGroup]="childForm" id='EditForm'>
 

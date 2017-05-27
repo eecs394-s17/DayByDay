@@ -1,0 +1,88 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Full Staff</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-fab top right>
+    <button ion-fab style='background-color:#3498db' (click)="AddStaff()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-card style="background-color:#8e44ad">
+      <ion-card-header>
+        <h1 style="color: #ecf0f1">Attending staff</h1>
+      </ion-card-header>
+      <ion-item *ngFor="let attending of attendingStaff | async">
+        <ion-card (click)="goToEditor(attending, 'attending')">
+          <ion-card-header>
+            <ion-row>
+              <ion-col>
+                {{attending.name}}
+              </ion-col>
+              <ion-col>
+                <ion-note class="right">whats my role</ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+        </ion-card>
+      </ion-item>
+    </ion-card>
+
+    <br />
+    <br />
+
+    <ion-card style="background-color:#1abc9c">
+      <ion-card-header>
+        <h1 style="color: #ecf0f1">Nurse staff</h1>
+      </ion-card-header>
+      <ion-item *ngFor="let nurse of nurseStaff | async">
+        <ion-card (click)="goToEditor(nurse, 'nurse')">
+          <ion-card-header>
+            <ion-row>
+              <ion-col>
+                {{nurse.name}}
+              </ion-col>
+              <ion-col>
+                <ion-note class="right">whats my role</ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+        </ion-card>
+      </ion-item>
+    </ion-card>
+
+    <br />
+    <br />
+
+    <ion-card style="background-color:#c0392b">
+      <ion-card-header>
+        <h1 style="color: #ecf0f1">Fellow staff</h1>
+      </ion-card-header>
+      <ion-item *ngFor="let fellow of fellowStaff | async">
+        <ion-card (click)="goToEditor(fellow, 'fellow')">
+          <ion-card-header>
+            <ion-row>
+              <ion-col>
+                {{fellow.name}}
+              </ion-col>
+              <ion-col>
+                <ion-note class="right">whats my role</ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-card-header>
+        </ion-card>
+      </ion-item>
+    </ion-card>
+
+    <br />
+
+
+  </ion-list>
+</ion-content>

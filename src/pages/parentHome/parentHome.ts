@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { SignIn } from '../signIn/signIn';
 import * as firebase from 'firebase/app';
+
+import { AuthService } from '../../providers/auth-service';
 
 @Component({
   templateUrl: 'parentHome.html'
@@ -13,7 +16,11 @@ export class ParentHome {
   matchChild: any;
   mychild: any;
 
-  constructor(public alertCtrl: AlertController, public db: AngularFireDatabase, public params: NavParams) {
+  constructor(public alertCtrl: AlertController,
+      public db: AngularFireDatabase,
+      public params: NavParams,
+      public navCtrl: NavController,
+      private auth: AuthService) {
       this.updates = db.list('/updates', {
         query: {
           orderByChild: 'timestamp'
@@ -82,5 +89,12 @@ export class ParentHome {
     }
     */
 
-
+    logout() {
+        var that = this;
+        this.auth.signOut().then(function() {
+            that.navCtrl.push(SignIn);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
 }

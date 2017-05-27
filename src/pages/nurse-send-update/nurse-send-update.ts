@@ -86,4 +86,44 @@ this.messageForm = new FormGroup({
 
     }
   }
+
+  timestamp() {
+    var d = new Date();
+    var n = d.toISOString();
+    return this.timeConverter(n);
+  }
+  timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var meridian;
+    if (hour > 12) {
+      hour = hour - 12;
+      meridian = 'pm';
+    }
+    else if (hour == 12) {
+      meridian = 'pm';
+    }
+    else if (hour == 0) {
+      hour = 12;
+      meridian = 'am';
+    }
+    else {
+      meridian = 'am';
+    }
+
+    var min = a.getMinutes();
+    var minStr;
+    if (min < 10) {
+      minStr = '0' + min;
+    }
+    else {
+      minStr = min;
+    }
+    var time = month + ' ' + date + ' at ' + hour + ':' + minStr + ' ' + meridian;
+    return time;
+  }
 }

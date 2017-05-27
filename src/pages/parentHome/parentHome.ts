@@ -92,7 +92,7 @@ export class ParentHome {
     logout() {
         var that = this;
         this.auth.signOut().then(function() {
-            that.navCtrl.push(SignIn);
+            that.navCtrl.setRoot(SignIn);
         }).catch(function(error) {
             console.log(error);
         });

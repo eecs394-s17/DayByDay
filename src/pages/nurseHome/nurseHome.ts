@@ -14,12 +14,15 @@ export class NurseHome {
     viewUpdates: any;
   constructor(private auth: AuthService, public navCtrl: NavController) {
     this.sendUpdate = NurseSendUpdate;
-    this.viewUpdates = NurseViewUpdates ;
+    this.viewUpdates = NurseViewUpdates;
+
   }
+
+
   logout() {
     var that = this;
     this.auth.signOut().then(function() {
-      that.navCtrl.push(SignIn);
+      that.navCtrl.setRoot(SignIn);
     }).catch(function(error) {
         console.log(error);
     });

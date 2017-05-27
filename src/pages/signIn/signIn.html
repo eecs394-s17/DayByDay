@@ -5,9 +5,10 @@
     </ion-title>
 
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background-color:#90CAF8">
   <!-- <ion-list>
       <ion-item ui-sref="nursePage">
         <button (click) = "openNewRoot(nurseHome)">I am a Nurse</button>
@@ -16,7 +17,8 @@
          <button (click) = "openNewRoot(parentHome)"> I am a Parent </button>
       </ion-item>
   </ion-list> -->
-
+  <img style="max-width:55%; align:center" src="assets/img/Logo-FINAL.png">
+  <br />
   <form [formGroup]="signinForm" (submit)="signIn()" novalidate>
 
     <ion-item>
@@ -38,6 +40,7 @@
       *ngIf="!signinForm.controls.password.valid  && signinForm.controls.password.dirty">
       <p>Your password needs more than 6 characters.</p>
     </ion-item>
+    <br />
 
     <br />
     <button ion-button block type="submit">

@@ -41,7 +41,7 @@
     <ion-list-header>Full Staff</ion-list-header>
     <ion-item *ngFor="let attender of attendingStaff | async">
           <ion-avatar item-left>
-            <img src="assets/img/example-nurse.jpeg">
+            <img src="assets/img/person.png">
           </ion-avatar>
           <h2>{{attender.name}}</h2>
           <p>Attending staff</p>
@@ -50,7 +50,7 @@
 
     <ion-item *ngFor="let nurse of nurseStaff | async">
         <ion-avatar item-left>
-          <img src="assets/img/example-nurse-2.jpg">
+          <img src="assets/img/person.png">
         </ion-avatar>
         <h2>{{nurse.name}}</h2>
         <p>Nurse</p>
@@ -59,7 +59,7 @@
 
     <ion-item *ngFor="let fellow of fellowStaff | async">
         <ion-avatar item-left>
-          <img src="assets/img/example-nurse-2.jpg">
+          <img src="assets/img/person.png">
         </ion-avatar>
         <h2>{{fellow.name}}</h2>
         <p>Fellow</p>

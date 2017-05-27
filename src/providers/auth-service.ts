@@ -13,11 +13,14 @@ import * as firebase from 'firebase/app';
 */
 @Injectable()
 export class AuthService {
-  private user: Observable<firebase.User>;
-  private currentUser: firebase.User;
+  private authState: Observable<firebase.User>;
+  public currentUser: firebase.User = null;
 
   constructor(public afAuth: AngularFireAuth) {
-    this.user = afAuth.authState;
+    this.authState = afAuth.authState;
+    this.afAuth.authState.subscribe((user: firebase.User) => {
+        this.currentUser = user;
+    });
   }
 
   get authenticated(): boolean {

@@ -21,7 +21,7 @@ Ionic pages and navigation.
 					<ion-col>
 						<ion-row>
 							<ion-item>
-								<ion-label>Child</ion-label>
+								<ion-label>Child Name</ion-label>
 								<ion-select formControlName="child">
 									<ion-option *ngFor="let c of children | async" value={{c.childName}}>
 										{{c.childName}}
@@ -29,7 +29,6 @@ Ionic pages and navigation.
 								</ion-select>
 							</ion-item>	
 						</ion-row>
-
 						<ion-row>		
 							<ion-col col-1>
 							</ion-col>
@@ -47,6 +46,25 @@ Ionic pages and navigation.
 							</ion-col>
 						</ion-row>
 
+						<ion-row>
+
+						
+
+							
+								<ion-item>
+								<ion-label>What shift is this update for?</ion-label>
+								<ion-select formControlName="session">
+									<ion-option value="day" (click)="selectedDay()">
+										Day
+									</ion-option>
+									<ion-option value="night" (click)="selectedNight()">
+										Night
+									</ion-option>
+								</ion-select>
+								</ion-item>	
+							
+						</ion-row>
+
 						<ion-card>
 							<ion-card-header>
 								Care Team for Next Shift
@@ -55,16 +73,16 @@ Ionic pages and navigation.
 								<ion-list radio-group>
 									<ion-item >
 										<ion-label color="primary">Attending</ion-label>
-										<ion-select formControlName="attendingStaff">
-											<ion-option *ngFor="let a of attending | async" value={{a.name}}>{{a.name}}</ion-option>
-										</ion-select>
+											<ion-select multiple="true" formControlName="attendingStaff">
+												<ion-option *ngFor="let a of attending | async" value={{a.name}}>{{a.name}}</ion-option>
+											</ion-select>
 									</ion-item>
 								</ion-list>
 
 								<ion-list radio-group>
 									<ion-item>
 										<ion-label color="primary">Fellow</ion-label>
-										<ion-select formControlName="fellowStaff">
+										<ion-select multiple="true" formControlName="fellowStaff">
 											<ion-option *ngFor="let f of fellow | async" value={{f.name}}>{{f.name}}</ion-option>
 										</ion-select>
 									</ion-item>
@@ -73,7 +91,7 @@ Ionic pages and navigation.
 								<ion-list radio-group>
 									<ion-item >
 										<ion-label color="primary">Nurse</ion-label>
-										<ion-select formControlName="nurseStaff">
+										<ion-select multiple="true" formControlName="nurseStaff">
 											<ion-option *ngFor="let n of nurse | async" value={{n.name}}>{{n.name}}</ion-option>
 										</ion-select>
 									</ion-item>
@@ -89,7 +107,7 @@ Ionic pages and navigation.
 								<ion-list radio-group>
 									<ion-item>
 										<ion-label color="primary">Specialists</ion-label>
-										<ion-select formControlName="Specialist">
+										<ion-select multiple="true" formControlName="Specialist">
 											<ion-option *ngFor="let s of specialists | async" value={{s.name}}>{{s.name}}</ion-option>
 										</ion-select>
 									</ion-item>
@@ -104,7 +122,7 @@ Ionic pages and navigation.
 								<ion-list radio-group>
 									<ion-item>
 										<ion-label color="primary">Overnight</ion-label>
-										<ion-select formControlName="Overnight">
+										<ion-select multiple="true" formControlName="Overnight">
 											<ion-option *ngFor="let o of overnight | async" value={{o.name}}>{{o.name}}</ion-option>
 										</ion-select>
 									</ion-item>
@@ -113,7 +131,7 @@ Ionic pages and navigation.
 								<ion-list radio-group>
 									<ion-item >
 										<ion-label color="primary">Mood</ion-label>
-										<ion-select formControlName="Mood">
+										<ion-select multiple="true" formControlName="Mood">
 											<ion-option *ngFor="let m of mood | async" value={{m.name}}>{{m.name}}</ion-option>
 										</ion-select>
 									</ion-item>
@@ -122,7 +140,7 @@ Ionic pages and navigation.
 								<ion-list radio-group>
 									<ion-item>
 										<ion-label color="primary">Other</ion-label>
-										<ion-select formControlName="Other">
+										<ion-select multiple="true" formControlName="Other">
 											<ion-option *ngFor="let o of other | async" value={{o.name}} style="max-width: 100%; width: 100%;">{{o.name}}</ion-option>
 										</ion-select>
 									</ion-item>
@@ -133,7 +151,7 @@ Ionic pages and navigation.
 					</ion-col>
 
 					<ion-col>
-						<h2 align="center">Preview</h2>
+						<h3 id="preview-header" align="left">Preview</h3>
 						<ion-card class="colorDayNight">
 							<ion-card-content>
 								<p *ngIf="this.messageForm.value.child != 'none';">Child: {{this.messageForm.value.child}}</p>
@@ -145,7 +163,9 @@ Ionic pages and navigation.
 								<p *ngIf="this.messageForm.value.fellowStaff != 'none';">Fellow: {{this.messageForm.value.fellowStaff}}</p>
 								<p *ngIf="this.messageForm.value.Overnight != 'none';">Overnight update: {{this.messageForm.value.Overnight}}</p>
 								<p *ngIf="this.messageForm.value.Other != 'none';">Other updates: {{this.messageForm.value.Other}}</p>
-								<ion-note class="right">{{timestamp()}}</ion-note>
+								
+								<div class="bottomright">{{timestamp()}}</div>
+								
 							</ion-card-content>
 						</ion-card>
 						<ion-row>

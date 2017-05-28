@@ -66,16 +66,14 @@ export class SignIn {
           ref.on("value", function(snapshot){
           var usertype;
           for(var i in snapshot.val()){
-            console.log(snapshot.val()[i].email)
+            // console.log(snapshot.val()[i].email)
             if(snapshot.val()[i].email==signin.signinForm.value.email){
               usertype=snapshot.val()[i].type;
             }
           }
           if(usertype==="parent"){
             // signin.navCtrl.setRoot(ParentHome);
-            signin.navCtrl.setRoot(ParentHome, {
-              foreignKey: signin.signinForm.value.email,
-            });
+            signin.navCtrl.setRoot(ParentHome);
           }
           else{
             signin.navCtrl.setRoot(NurseHome);
@@ -85,7 +83,7 @@ export class SignIn {
 
             this.storage.set('type', 'parent');
         });
-        console.log("success", authData);
+        // console.log("success", authData);
       }, error => {
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({

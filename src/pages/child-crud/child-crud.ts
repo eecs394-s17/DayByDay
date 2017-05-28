@@ -59,6 +59,7 @@ constructor(public platform: Platform,
     event.preventDefault();
     if(this.childForm.value.message != 'none') {
     var childcrud = this;
+
     var matchingUsers = firebase.database().ref('/users')
     .orderByChild('email')
     .equalTo(childcrud.childForm.value.parentEmail)

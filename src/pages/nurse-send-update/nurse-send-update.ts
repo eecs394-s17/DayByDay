@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { Platform, ViewController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -35,7 +35,8 @@ displayRoundTime: any;
 constructor(public platform: Platform,
                    public viewCtrl: ViewController,
                    public db: AngularFireDatabase,
-                 public navCtrl: NavController) {
+                 public navCtrl: NavController,
+                 public alertCtrl: AlertController) {
 
 this.updates = db.list('/updates');
 this.messages = db.list('/messages');
@@ -62,8 +63,20 @@ this.messageForm = new FormGroup({
                                   "Overnight": new FormControl({value: 'none', disabled: false}),
                                   "Mood": new FormControl({value: 'none', disabled: false}),
                                   "Other": new FormControl({value: 'none', disabled: false}),
-                                  });
+                                  }, this.messageValidator);
 }
+
+  messageValidator(g: FormGroup) {
+    return (((g.get('child').value != 'none') && g.get('session').value != 'none') 
+      && (g.get('attendingStaff').value != 'none' 
+        || g.get('fellowStaff').value != 'none' 
+        || g.get('nurseStaff').value != 'none' 
+        || g.get('Specialist').value != 'none' 
+        || g.get('Overnight').value != 'none' 
+        || g.get('Mood').value != 'none' 
+        || g.get('Other').value != 'none')) 
+    ? null : {'mismatch': true};
+  }
 
   dismiss(){
     this.messageForm.reset({
@@ -84,8 +97,8 @@ this.messageForm = new FormGroup({
 
   doSubmit(event) {
     event.preventDefault();
-    if(this.messageForm.value.message != 'none') {
-    this.updates.push({
+    if(this.messageForm.valid) {
+      this.updates.push({
                        session: this.messageForm.value.session,
                        child: this.messageForm.value.child,
                        timestamp: 0 - new Date().getTime(),
@@ -100,7 +113,18 @@ this.messageForm = new FormGroup({
                      }).then(()=> {
                        this.navCtrl.setRoot(NurseHome);
                      });
-
+    }
+    else{
+      let alert = this.alertCtrl.create({
+        message: "Invalid message",
+        buttons: [
+          {
+            text: "Dismiss",
+            role: 'cancel'
+          }
+        ]
+      });
+      alert.present();
     }
   }
 

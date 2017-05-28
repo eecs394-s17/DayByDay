@@ -47,21 +47,6 @@ Ionic pages and navigation.
 						</ion-row>
 
 						<ion-row>
-
-						
-
-							
-								<ion-item>
-								<ion-label>What shift is this update for?</ion-label>
-								<ion-select formControlName="session">
-									<ion-option value="day" (click)="selectedDay()">
-										Day
-									</ion-option>
-									<ion-option value="night" (click)="selectedNight()">
-										Night
-									</ion-option>
-								</ion-select>
-								</ion-item>	
 							
 						</ion-row>
 
@@ -113,11 +98,10 @@ Ionic pages and navigation.
 									</ion-item>
 								</ion-list>
 
-								<ion-list radio-group>
-									<ion-item>
-										<ion-label>Round Times</ion-label>
-									</ion-item>
-								</ion-list>
+								<ion-item>
+								  <ion-label color="primary">Round Time</ion-label>
+								  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+								</ion-item>
 
 								<ion-list radio-group>
 									<ion-item>

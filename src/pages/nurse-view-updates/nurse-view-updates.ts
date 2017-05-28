@@ -58,4 +58,23 @@ export class NurseViewUpdates {
     var time = month + ' ' + date + ' at ' + hour + ':' + minStr + ' ' + meridian;
     return time;
   }
+
+  colorDayNight(DayNight, event){
+    if (DayNight == "day"){
+      this.selectedDay(event);
+    }
+    else if (DayNight == "night"){
+      this.selectedNight(event);
+    }
+    return DayNight;
+  }
+
+  selectedDay(event){
+    event.currentTarget.parentElement.parentElement.setAttribute("style","background-color:#FEC83E");
+  }
+
+  selectedNight(event){
+    event.currentTarget.parentElement.parentElement.setAttribute("style","background-color:#90CAF8");
+
+  }
 }

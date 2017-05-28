@@ -62,7 +62,18 @@ this.messageForm = new FormGroup({
 }
 
   dismiss(){
-    this.messageForm.reset();
+    this.messageForm.reset({
+                            "child": 'none',
+                            "session": 'none',
+                            "attendingStaff": 'none',
+                            "fellowStaff": 'none',
+                            "nurseStaff": 'none',
+                            "Specialist": 'none',
+                            "Overnight": 'none',
+                            "Mood": 'none',
+                            "Other": 'none',
+                            });
+    this.resetToWhite();
   }
 //update this function to reflect new variable names
 
@@ -138,7 +149,15 @@ this.messageForm = new FormGroup({
     var x = document.getElementsByClassName("colorDayNight");
     var i;
     for (i = 0; i < x.length; i++) {
-        x[i].setAttribute("style","background-color:#90CAF8");
+        x[i].setAttribute("style","background-color:#CFD8DC");
+    }
+  }
+
+  resetToWhite(){
+    var x = document.getElementsByClassName("colorDayNight");
+    var i;
+    for (i = 0; i < x.length; i++) {
+        x[i].setAttribute("style","background-color:#FFFFFF");
     }
   }
 

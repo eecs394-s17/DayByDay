@@ -15,12 +15,14 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class NurseViewUpdates {
   updates: FirebaseListObservable<any>;
+  children: FirebaseListObservable<any>;
+  childFilter: any;
 
   constructor(public db: AngularFireDatabase) {
-
+    this.children = db.list('/children');
     this.updates = db.list('/updates', {
       query: {
-        orderByChild: 'timestamp'
+        orderByChild: 'timestamp',
       }
     });
   }

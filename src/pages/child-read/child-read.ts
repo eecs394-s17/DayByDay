@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { ChildEditor } from '../child-editor/child-editor';
 
@@ -25,16 +25,6 @@ export class ChildRead {
                              }
                            });
 
-
-    //reusable sort function creater
-    var sort_by = function(field, reverse, primer){
-      var key = function (x) {return primer ? primer(x[field]) : x[field]};
-
-      return function (a,b) {
-        var A = key(a), B = key(b);
-        return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];
-      }
-    }
 
   }
   // Navigate to the existing child editor upon clicking any child card on the child-read page

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 /**
@@ -23,23 +23,11 @@ export class NurseViewUpdates {
         orderByChild: 'timestamp'
       }
     });
-
-
-    //reusable sort function creater
-    var sort_by = function(field, reverse, primer) {
-      var key = function(x) { return primer ? primer(x[field]) : x[field] };
-
-      return function(a, b) {
-        var A = key(a), B = key(b);
-        return ((A < B) ? -1 : ((A > B) ? 1 : 0)) * [-1, 1][+!!reverse];
-      }
-    }
-
   }
+
   timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp);
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var year = a.getFullYear();
     var month = months[a.getMonth()];
     var date = a.getDate();
     var hour = a.getHours();
@@ -69,5 +57,24 @@ export class NurseViewUpdates {
     }
     var time = month + ' ' + date + ' at ' + hour + ':' + minStr + ' ' + meridian;
     return time;
+  }
+
+  colorDayNight(DayNight, event){
+    if (DayNight == "day"){
+      this.selectedDay(event);
+    }
+    else if (DayNight == "night"){
+      this.selectedNight(event);
+    }
+    return DayNight;
+  }
+
+  selectedDay(event){
+    event.currentTarget.parentElement.parentElement.setAttribute("style","background-color:#FEC83E");
+  }
+
+  selectedNight(event){
+    event.currentTarget.parentElement.parentElement.setAttribute("style","background-color:#90CAF8");
+
   }
 }

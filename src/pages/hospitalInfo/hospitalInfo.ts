@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { CommonProcedures } from '../hospitalInfo/commonProcedures/commonProcedures';
 import { Dining } from '../hospitalInfo/dining/dining';
 import { GuestPolicies } from '../hospitalInfo/guestPolicies/guestPolicies';

@@ -14,24 +14,43 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="parentPage">
+<ion-content>
 
   <ion-list>
     <ng-container *ngFor="let update of updates | async">
-      <ion-card *ngIf="mychild.indexOf(update.child) != -1;">
-        <ion-card-header>
+      <ion-card *ngIf="mychild.indexOf(update.child) != -1;" class={{update.session}}>
+        <ion-card-content *ngIf="update.session=='day'">
+          <img style="float:right; max-width:2.5em;" src="assets/img/day.png">
           <p *ngIf="update.child != 'none';">Child: {{update.child}}</p>
-        </ion-card-header>
-        <ion-card-content>
-          <p *ngIf="update.session != 'none';">Session: {{update.session}}</p>
+          <!-- <p *ngIf="update.session != 'none';">Session: {{update.session}}</p> -->
           <p *ngIf="update.mood != 'none';">Mood: {{update.mood}}</p>
           <p *ngIf="update.attendingStaff != 'none';">Attending staff: {{update.attendingStaff}}</p>
           <p *ngIf="update.nurseStaff != 'none';">On duty nurse: {{update.nurseStaff}}</p>
           <p *ngIf="update.specialist != 'none';">Specialist: {{update.specialist}}</p>
+          <p *ngIf="update.displayRoundTime != 'none';">Round Time: {{update.displayRoundTime}}</p>
           <p *ngIf="update.fellowStaff != 'none';">Fellow: {{update.fellowStaff}}</p>
           <p *ngIf="update.overnight != 'none';">Overnight update: {{update.overnight}}</p>
           <p *ngIf="update.Other != 'none';">Other updates: {{update.Other}}</p>
-          <ion-note class="right">{{timeConverter(-update.timestamp)}}</ion-note>
+
+          <ion-note class="right" style="color:black; font-size:50%">{{timeConverter(-update.timestamp)}}</ion-note>
+<!-- {{Seen(update.child, update.timestamp)}} -->
+        </ion-card-content>
+
+        <ion-card-content *ngIf="update.session=='night'">
+          <img style="float:right; max-width:2.5em;" src="assets/img/night.png">
+          <p *ngIf="update.child != 'none';" style="color:white">Child: {{update.child}}</p>
+          <!-- <p *ngIf="update.session != 'none';" style="color:white">Session: {{update.session}}</p> -->
+          <p *ngIf="update.mood != 'none';" style="color:white">Mood: {{update.mood}}</p>
+          <p *ngIf="update.attendingStaff != 'none';" style="color:white">Attending staff: {{update.attendingStaff}}</p>
+          <p *ngIf="update.nurseStaff != 'none';" style="color:white">On duty nurse: {{update.nurseStaff}}</p>
+          <p *ngIf="update.specialist != 'none';" style="color:white">Specialist: {{update.specialist}}</p>
+          <p *ngIf="update.displayRoundTime != 'none';" style="color:white">Round Time: {{update.displayRoundTime}}</p>
+          <p *ngIf="update.fellowStaff != 'none';" style="color:white">Fellow: {{update.fellowStaff}}</p>
+          <p *ngIf="update.overnight != 'none';" style="color:white">Overnight update: {{update.overnight}}</p>
+          <p *ngIf="update.Other != 'none';" style="color:white">Other updates: {{update.Other}}</p>
+
+          <ion-note class="right" style="color:white; font-size:50%">{{timeConverter(-update.timestamp)}}</ion-note>
+<!-- {{Seen(update.child, update.timestamp)}} -->
         </ion-card-content>
       </ion-card>
     </ng-container>

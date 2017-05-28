@@ -109,6 +109,7 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
+    AngularFireAuthModule, 
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService

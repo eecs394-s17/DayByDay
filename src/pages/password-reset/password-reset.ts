@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, Loading, LoadingController } from 'ionic-angular';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../providers/auth-service';
 import { EmailValidator } from '../../validators/email';

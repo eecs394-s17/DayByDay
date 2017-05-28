@@ -1,11 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, AlertController, Loading, LoadingController } from 'ionic-angular';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParentHome } from '../parentHome/parentHome';
 import { NurseHome } from '../nurseHome/nurseHome';
 import { SuiteSelection } from '../suiteSelection/suiteSelection';
-import { Platform, MenuController, Nav } from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { EmailValidator } from '../../validators/email';
 import { Storage } from '@ionic/storage';

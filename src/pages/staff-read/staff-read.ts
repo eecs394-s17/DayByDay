@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { AngularFireDatabase } from 'angularfire2/database';
 // import { staffEditor } from '../staff-editor/staff-editor';
 import { staffAdd } from '../staff-add/staff-add'
 import { staffEditor } from '../staff-editor/staff-editor'
@@ -38,16 +38,6 @@ export class staffRead {
                              orderByChild: 'name'
                              }
                            });
-
-    //reusable sort function creater
-    var sort_by = function(field, reverse, primer){
-      var key = function (x) {return primer ? primer(x[field]) : x[field]};
-
-      return function (a,b) {
-        var A = key(a), B = key(b);
-        return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];
-      }
-    }
 
   }
 

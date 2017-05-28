@@ -7,15 +7,10 @@ import {HospitalInfo} from '../pages/hospitalInfo/hospitalInfo';
 import { ParentHome } from '../pages/parentHome/parentHome';
 import { NurseHome } from '../pages/nurseHome/nurseHome';
 import { SignIn } from '../pages/signIn/signIn';
-import { SignupPage } from '../pages/SignupPage/SignupPage'
-import { ModalContent } from '../pages/modalContent/modalContent';
 import { Staff } from '../pages/staff/staff';
-import { SuiteSelection } from '../pages/suiteSelection/suiteSelection';
 import { ChildManagement } from '../pages/child-management/child-management'
-import { ChildEditor } from '../pages/child-editor/child-editor'
 import { staffRead } from '../pages/staff-read/staff-read'
-import { staffAdd } from '../pages/staff-add/staff-add'
-import { staffEditor } from '../pages/staff-editor/staff-editor'
+import { AuthService } from '../providers/auth-service';
 
 
 @Component({
@@ -30,9 +25,10 @@ export class MyApp {
   constructor(platform: Platform,
       statusBar: StatusBar,
       splashScreen: SplashScreen,
-      public menu: MenuController) {
+      public menu: MenuController,
+      private auth: AuthService ) {
       platform.ready().then(() => {
-
+      console.log(this.auth.currentUser);
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

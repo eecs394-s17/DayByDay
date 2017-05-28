@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
+
 
 /**
 * Generated class for the NurseViewUpdates page.
@@ -25,6 +27,33 @@ export class NurseViewUpdates {
         orderByChild: 'timestamp',
       }
     });
+  }
+
+  Seen(child, cardTime){
+    var uid;
+    var matchChild = firebase.database().ref('/children')
+    .orderByChild("childName")
+    .equalTo(child)
+    matchChild.on("value", function(snapshot){
+      for(var i in snapshot.val()){
+        uid = snapshot.val()[i].parentUID;
+      }
+    });
+
+    var lastLogin;
+
+    var matchParent = firebase.database().ref('/users')
+    .orderByChild("UID")
+    .equalTo(uid)
+    matchParent.on("value", function(snapshot){
+      for(var i in snapshot.val()){
+        lastLogin = snapshot.val()[i].lastLogin;
+      }
+    });
+
+    if (-lastLogin>-cardTime){
+      return "Seen • "
+    }
   }
 
   timeConverter(UNIX_timestamp) {

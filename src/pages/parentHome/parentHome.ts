@@ -13,8 +13,15 @@ export class ParentHome {
   updates: FirebaseListObservable<any>;
   processedUpdates: any;
   foreignKey: any;
-  matchChild: any;
+  // matchChild: any;
+  // matchParent: any;
   mychild: any;
+  lastLogin: any;
+  users;
+  UID;
+  email;
+  parentName;
+  key;
 
   constructor(public alertCtrl: AlertController,
       public db: AngularFireDatabase,
@@ -31,19 +38,49 @@ export class ParentHome {
       });
 
       // foreign key is the parent email
-      this.foreignKey = params.get("foreignKey");
-      // console.log("myemail",this.foreignKey)
+      // this.foreignKey = params.get("foreignKey");
+      this.UID = this.auth.getFirebaseId()
+
+      this.mychild = [];
+
       var parenthome = this;
-      this.matchChild = firebase.database().ref('/children')
-      .orderByChild("parentEmail")
-      .equalTo(parenthome.foreignKey)
-      this.matchChild.on("value", function(snapshot){
+
+      var matchChild = firebase.database().ref('/children')
+      .orderByChild("parentUID")
+      .equalTo(parenthome.UID)
+      matchChild.on("value", function(snapshot){
         for(var i in snapshot.val()){
-          parenthome.mychild = snapshot.val()[i].childName;
+          parenthome.mychild.push(snapshot.val()[i].childName)
         }
       })
+
+      this.updatelastLogin()
     }
 
+    updatelastLogin(){
+      var parenthome = this;
+      // this.users = this.db.list('/users')
+      // console.log('UID',this.UID)
+
+      var matchParent = firebase.database().ref('/users')
+      .orderByChild("UID")
+      .equalTo(parenthome.UID)
+      matchParent.once("value", function(snapshot){
+        for(var i in snapshot.val()){
+          parenthome.key = Object.keys(snapshot.val())[0];
+          parenthome.email = snapshot.val()[i].email;
+          parenthome.parentName = snapshot.val()[i].parentName;
+        }
+      });
+
+      // this.db.list('/users').update(this.key, {
+      //                    UID: this.UID,
+      //                    email: this.email,
+      //                    parentName: this.parentName,
+      //                    type: 'parent',
+      //                    lastLogin: 0 - new Date().getTime()
+      //                  });
+    }
 
     timeConverter(UNIX_timestamp){
       var a = new Date(UNIX_timestamp);
@@ -78,18 +115,6 @@ export class ParentHome {
       var time = month + ' ' + date + ' at ' + hour + ':' + minStr + ' ' + meridian;
       return time;
     }
-
-    //reusable sort function creater
-    /*
-    var sort_by = function(field, reverse, primer){
-       var key = function (x) {return primer ? primer(x[field]) : x[field]};
-
-       return function (a,b) {
-    	  var A = key(a), B = key(b);
-    	  return ( (A < B) ? -1 : ((A > B) ? 1 : 0) ) * [-1,1][+!!reverse];
-       }
-    }
-    */
 
     logout() {
         var that = this;

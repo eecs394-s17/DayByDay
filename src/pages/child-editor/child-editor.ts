@@ -41,7 +41,7 @@ export class ChildEditor {
         this.isActive = params.get("isActive")
         this.parentEmail = params.get("parentEmail")
 
-        this.users = firebase.database().ref('/users').orderByChild;
+        this.users = firebase.database().ref('/users');
 
         this.childForm = new FormGroup({
                                           "childName": new FormControl({value: this.childName, disabled: false}),

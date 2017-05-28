@@ -39,7 +39,6 @@ export class MyApp {
 
   ngAfterViewInit() {
   this.nav.viewDidEnter.subscribe((data) => {
-  console.log(data);
       this.currentPage = data.component.name;
       if (this.currentPage === 'ParentHome') {
         this.pages = [

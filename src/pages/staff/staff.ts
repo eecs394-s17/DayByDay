@@ -19,7 +19,6 @@ export class Staff {
     this.attendingStaff = db.list('/staff/attending')
     this.nurseStaff = db.list('/staff/nurse')
     this.fellowStaff = db.list('/staff/fellow')
-
   }
 
   ionViewDidLoad() {

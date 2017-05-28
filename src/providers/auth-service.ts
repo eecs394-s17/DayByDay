@@ -42,6 +42,7 @@ export class AuthService {
         parentName: parentName,
         type: 'parent',
         UID: newUser.uid,
+        lastLogin: 0,
       });
     });
   }

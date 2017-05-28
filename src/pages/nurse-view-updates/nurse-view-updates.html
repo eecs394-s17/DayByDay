@@ -44,6 +44,7 @@ Ionic pages and navigation.
           <p *ngIf="update.overnight != 'none';">Overnight update: {{update.overnight}}</p>
           <p *ngIf="update.Other != 'none';">Other updates: {{update.Other}}</p>
           <ion-note class="right">{{timeConverter(-update.timestamp)}}</ion-note>
+<!-- {{Seen(update.child, update.timestamp)}} -->
         </ion-card-content>
       </ion-card>
     </ion-item>

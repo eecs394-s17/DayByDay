@@ -100,7 +100,7 @@ Ionic pages and navigation.
 
 								<ion-item>
 								  <ion-label color="primary">Round Time</ion-label>
-								  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+								  <ion-datetime displayFormat="h:mm a" pickerFormat="h mm A" minuteValues="0,15,30,45" [(ngModel)]="roundTime" [ngModelOptions]="{standalone: true}" (ionChange)="setDisplayRoundTime()"></ion-datetime>
 								</ion-item>
 
 								<ion-list radio-group>
@@ -144,6 +144,9 @@ Ionic pages and navigation.
 								<p *ngIf="this.messageForm.value.attendingStaff != 'none';">Attending staff: {{this.messageForm.value.attendingStaff}}</p>
 								<p *ngIf="this.messageForm.value.nurseStaff != 'none';">On duty nurse: {{this.messageForm.value.nurseStaff}}</p>
 								<p *ngIf="this.messageForm.value.Specialist != 'none';">Specialist: {{this.messageForm.value.Specialist}}</p>
+
+								<p *ngIf="this.displayRoundTime != 'none';">Round Time: {{this.displayRoundTime}}</p>
+
 								<p *ngIf="this.messageForm.value.fellowStaff != 'none';">Fellow: {{this.messageForm.value.fellowStaff}}</p>
 								<p *ngIf="this.messageForm.value.Overnight != 'none';">Overnight update: {{this.messageForm.value.Overnight}}</p>
 								<p *ngIf="this.messageForm.value.Other != 'none';">Other updates: {{this.messageForm.value.Other}}</p>

@@ -29,6 +29,8 @@ roundtimes;
 overnight;
 mood;
 other;
+roundTime: any;
+displayRoundTime: any;
 
 constructor(public platform: Platform,
                    public viewCtrl: ViewController,
@@ -46,6 +48,8 @@ this.roundtimes = db.list('/roundtimes');
 this.overnight = db.list('/overnight');
 this.mood = db.list('/mood');
 this.other = db.list('/other');
+
+this.displayRoundTime = 'none';
 
 
 this.messageForm = new FormGroup({
@@ -74,6 +78,7 @@ this.messageForm = new FormGroup({
                             "Other": 'none',
                             });
     this.resetToWhite();
+    this.displayRoundTime = 'none';
   }
 //update this function to reflect new variable names
 
@@ -88,6 +93,7 @@ this.messageForm = new FormGroup({
                        Other: this.messageForm.value.Other,
                        overnight: this.messageForm.value.Overnight,
                        specialist: this.messageForm.value.Specialist,
+                       displayRoundTime: this.displayRoundTime,
                        nurseStaff: this.messageForm.value.nurseStaff,
                        fellowStaff: this.messageForm.value.fellowStaff,
                        attendingStaff: this.messageForm.value.attendingStaff,
@@ -159,6 +165,31 @@ this.messageForm = new FormGroup({
     for (i = 0; i < x.length; i++) {
         x[i].setAttribute("style","background-color:#FFFFFF");
     }
+  }
+
+  setDisplayRoundTime() {
+    // have to convert 24 hour time
+    var time = this.roundTime.split(':'); // convert to array
+
+    // fetch
+    var hours = Number(time[0]);
+    var minutes = Number(time[1]);
+
+    // calculate
+    var timeValue;
+
+    if (hours > 0 && hours <= 12) {
+      timeValue= "" + hours;
+    } else if (hours > 12) {
+      timeValue= "" + (hours - 12);
+    } else if (hours == 0) {
+      timeValue= "12";
+    }
+     
+    timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
+    timeValue += (hours >= 12) ? " pm" : " am";  // get AM/PM
+    
+    this.displayRoundTime = timeValue;
   }
 
 }

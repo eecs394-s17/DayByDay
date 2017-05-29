@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-navbar >
-  	<button ion-button menuToggle>
+  <ion-navbar>
+    <button ion-button menuToggle>
       <ion-icon id="myMenu" name="menu"></ion-icon>
     </button>
     <h3 align="center">
         Child Updates
     </h3>
-     <ion-buttons end>
-    <img alt="logo" height="45" src="../../assets/img/Logo_Final_nowords.png" >
-       <!--  <button ion-button (click)="logout()">
+    <ion-buttons end>
+      <img alt="logo" height="45" src="../../assets/img/Logo_Final_nowords.png">
+      <!--  <button ion-button (click)="logout()">
             Logout
         </button> -->
     </ion-buttons>
-    
+
   </ion-navbar>
 </ion-header>
 
@@ -20,12 +20,11 @@
 
   <ion-list>
     <ng-container *ngFor="let update of updates | async">
-              <ion-card id="updatescard" *ngIf="(this.childFilter != undefined && !this.childFilter.includes('All Children')) ? update.child == this.childFilter : true;"
-            class={{update.session}} >
+      <ion-card id="updatescard" *ngIf="mychild.indexOf(update.child) != -1;" class={{update.session}}>
         <ion-card-content *ngIf="update.session=='day'">
-        <div class="fullwidth">
-          <img style="float:right; max-height:2em;max-width:2em;" src="assets/img/day.png">
-        </div>
+          <div class="fullwidth">
+            <img style="float:right; max-height:2em;max-width:2em;" src="assets/img/day.png">
+          </div>
           <p *ngIf="update.child != 'none';">Child: {{update.child}}</p>
           <!-- <p *ngIf="update.session != 'none';">Session: {{update.session}}</p> -->
           <p *ngIf="update.mood != 'none';">Mood: {{update.mood}}</p>
@@ -38,7 +37,7 @@
           <p *ngIf="update.Other != 'none';">Other updates: {{update.Other}}</p>
 
           <ion-note class="right" style="color:black; font-size:80%">{{timeConverter(-update.timestamp)}}</ion-note>
-<!-- {{Seen(update.child, update.timestamp)}} -->
+          <!-- {{Seen(update.child, update.timestamp)}} -->
         </ion-card-content>
 
         <ion-card-content *ngIf="update.session=='night'">
@@ -57,7 +56,7 @@
           <p *ngIf="update.Other != 'none';">Other updates: {{update.Other}}</p>
 
           <ion-note class="right" style="color:black; font-size:80%">{{timeConverter(-update.timestamp)}}</ion-note>
-<!-- {{Seen(update.child, update.timestamp)}} -->
+          <!-- {{Seen(update.child, update.timestamp)}} -->
         </ion-card-content>
       </ion-card>
     </ng-container>

@@ -45,6 +45,7 @@ export class MyApp {
           { title: 'Parent Feed', component: ParentHome },
           { title: 'Information', component: HospitalInfo },
           { title: 'Staff', component: Staff },
+          { title: 'Logout', component: SignIn },
         ];
       // else if instead of else because we only want to change sidemenu based on initial homepage
       } else if (this.currentPage === 'NurseHome') {
@@ -54,6 +55,7 @@ export class MyApp {
           { title: 'Staff', component: Staff },
           { title: 'Staff Management', component: staffRead},
           { title: 'Child Management', component: ChildManagement },
+          { title: 'Logout', component: SignIn },
         ];
       }
     });

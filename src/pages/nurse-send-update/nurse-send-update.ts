@@ -171,7 +171,7 @@ this.messageForm = new FormGroup({
     var x = document.getElementsByClassName("colorDayNight");
     var i;
     for (i = 0; i < x.length; i++) {
-        x[i].setAttribute("style","background-color:#FEC83E");
+        x[i].setAttribute("style","background-color:#ffedbe");
     }
   }
 
@@ -179,7 +179,7 @@ this.messageForm = new FormGroup({
     var x = document.getElementsByClassName("colorDayNight");
     var i;
     for (i = 0; i < x.length; i++) {
-        x[i].setAttribute("style","background-color:#CFD8DC");
+        x[i].setAttribute("style","background-color:#eceff1");
     }
   }
 

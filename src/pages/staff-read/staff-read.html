@@ -23,9 +23,9 @@
   </ion-fab>
 
   <ion-list>
-    <ion-card style="background-color:#8e44ad">
+    <ion-card style="background-color:#eeeeee">
       <ion-card-header>
-        <h1 style="color: #ecf0f1">Attending staff</h1>
+        <h1 >Attending staff</h1>
       </ion-card-header>
       <ion-item *ngFor="let attending of attendingStaff | async">
         <ion-card (click)="goToEditor(attending, 'attending')">
@@ -46,9 +46,9 @@
     <br />
     <br />
 
-    <ion-card style="background-color:#1abc9c">
+    <ion-card style="background-color:#eeeeee">
       <ion-card-header>
-        <h1 style="color: #ecf0f1">Nurse staff</h1>
+        <h1 >Nurse staff</h1>
       </ion-card-header>
       <ion-item *ngFor="let nurse of nurseStaff | async">
         <ion-card (click)="goToEditor(nurse, 'nurse')">
@@ -69,9 +69,9 @@
     <br />
     <br />
 
-    <ion-card style="background-color:#c0392b">
+    <ion-card style="background-color:#eeeeee">
       <ion-card-header>
-        <h1 style="color: #ecf0f1">Fellow staff</h1>
+        <h1 >Fellow staff</h1>
       </ion-card-header>
       <ion-item *ngFor="let fellow of fellowStaff | async">
         <ion-card (click)="goToEditor(fellow, 'fellow')">

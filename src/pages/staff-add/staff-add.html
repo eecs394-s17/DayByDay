@@ -22,14 +22,13 @@
   <br />
   <ion-list>
     <ion-card>
-      <ion-card-header style="background-color:#3498db">
-        <h1 style="color: white">Add a staff member</h1>
+      <ion-card-header style="background-color:#eeeeee">
+        <h1>Add a staff member</h1>
       </ion-card-header>
       <ion-card-content>
         <form (submit)="doSubmit($event)" [formGroup]="staffForm" id='AddForm'>
 
           <ion-item>
-            <ion-label color="primary" floating>Name</ion-label>
               <ion-input type="text" placeholder="Name" formControlName="staffName"></ion-input>
           </ion-item>
 

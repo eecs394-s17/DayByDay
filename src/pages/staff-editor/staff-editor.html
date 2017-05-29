@@ -18,15 +18,14 @@
 <ion-content padding>
   <ion-list>
     <ion-card>
-      <ion-card-header style="background-color:#3498db">
-        <h1 style="color: white">Edit staff record</h1>
+      <ion-card-header style="background-color:#eeeeee">
+        <h1>Edit staff record</h1>
       </ion-card-header>
       <ion-card-content>
         <form (submit)="confirmEdit($event)" [formGroup]="staffForm" id='EditForm'>
 
 
           <ion-item>
-            <ion-label color="primary" floating>Name</ion-label>
               <ion-input type="text" placeholder="Name" formControlName="staffName"></ion-input>
           </ion-item>
 

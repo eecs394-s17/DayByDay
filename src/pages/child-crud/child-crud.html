@@ -11,23 +11,21 @@
 <ion-content padding>
   <ion-list>
     <ion-card>
-      <ion-card-header style="background-color:#3498db">
-        <h1 style="color: white">Add a child</h1>
+      <ion-card-header style="background-color:#eeeeee">
+        <h1>Add a child</h1>
       </ion-card-header>
       <br />
       <ion-card-content>
         <form (submit)="doSubmit($event)" [formGroup]="childForm" id='AddForm'>
 
-          <ion-item style="background-color:yellow">
+          <ion-item>
             <ion-label color="primary">Active Occupant</ion-label>
             <ion-toggle formControlName="isActive"></ion-toggle>
           </ion-item>
           <ion-item>
-            <ion-label color="primary" floating>Child</ion-label>
               <ion-input type="text" placeholder="Child Name" formControlName="childName"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label color="primary" floating>Parent</ion-label>
               <ion-input type="text" placeholder="Parent Name" formControlName="parentName"></ion-input>
           </ion-item>
           <ion-item>

@@ -138,8 +138,13 @@ Ionic pages and navigation.
 						<h3 id="preview-header" align="left">Preview</h3>
 						<ion-card class="colorDayNight">
 							<ion-card-content>
+								<div class="fullwidth">
+						          <img *ngIf="this.messageForm.value.session == 'day'" style="float:right; max-height:2em;max-width:2em;" src="assets/img/day.png">
+						          <img *ngIf="this.messageForm.value.session == 'night'" style="float:right; max-height:2em; max-width:1em;" src="assets/img/night.png">
+						        </div>
+
 								<p *ngIf="this.messageForm.value.child != 'none';">Child: {{this.messageForm.value.child}}</p>
-								<p *ngIf="this.messageForm.value.session != 'none';">Session: {{this.messageForm.value.session}}</p>
+								<!--<p *ngIf="this.messageForm.value.session != 'none';">Session:{{this.messageForm.value.session}}</p>--> 
 								<p *ngIf="this.messageForm.value.Mood != 'none';">Mood: {{this.messageForm.value.Mood}}</p>
 								<p *ngIf="this.messageForm.value.attendingStaff != 'none';">Attending staff: {{this.messageForm.value.attendingStaff}}</p>
 								<p *ngIf="this.messageForm.value.nurseStaff != 'none';">On duty nurse: {{this.messageForm.value.nurseStaff}}</p>

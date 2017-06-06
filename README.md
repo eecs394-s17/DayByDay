@@ -10,7 +10,11 @@ Please note that this application is not HIPAA compliant and is not ready for us
 in a real-world medical setting.
 
 ### App Usage
-To use the app on a mobile device, first download Ionic view from the [Apple App Store](https://play.google.com/store/apps/details?id=com.ionic.viewapp&hl=en) or [Android Play Store](https://play.google.com/store/apps/details?id=com.ionic.viewapp&hl=en).
+To use the app on a mobile device, first download Ionic View from the [Apple App Store](https://play.google.com/store/apps/details?id=com.ionic.viewapp&hl=en) or [Android Play Store](https://play.google.com/store/apps/details?id=com.ionic.viewapp&hl=en).
+Click on Preview Shared app and use the App ID: d89435f7.
+To sign in as a test nurse, use the email ruthtaylor@picu.com.
+To sign in as a test parent, use the email debdove@gmail.com. This will allow you to view updates for the child Kyle Dove.
+The password for both accounts is abc123.
 
 ## Developer Setup
 ### Install Node and Ionic

@@ -10,6 +10,7 @@ Please note that this application is not HIPAA compliant and is not ready for us
 in a real-world medical setting.
 
 ### App Usage
+To use the app on a mobile device, first download Ionic view from the [Apple App Store](https://play.google.com/store/apps/details?id=com.ionic.viewapp&hl=en) or [Android Play Store](https://play.google.com/store/apps/details?id=com.ionic.viewapp&hl=en).
 
 ## Developer Setup
 ### Install Node and Ionic

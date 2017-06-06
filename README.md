@@ -2,6 +2,8 @@
 This repository contains the code for the DayByDay app produced for the ICU at
 Lurie Children's Hospital as project for EECS394. 
 
+<img width= 40% src="Updating.gif">
+
 ## Client Notes
 ### HIPAA Compliance
 Please note that this application is not HIPAA compliant and is not ready for use

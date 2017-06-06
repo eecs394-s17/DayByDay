@@ -1,23 +1,23 @@
 # DayByDay
-Repository containing code for the DayByDay app produced by the Purple team
-Team: Wajihuddin Omar Mohammed, Will Finnegan, Safia Abdalla, Grace Alexander, Haridu Senadeera, Kyle Lueptow
+This repository contains the code for the DayByDay app produced for the ICU at
+Lurie Children's Hospital as project for EECS394. 
 
-************************************
-Platform: Ionic 2
-For various dependencies, please refer to the package.json
-************************************
+## Client Notes
+### HIPPA Compliance
+### App Usage
 
----------------------------------------------------------------
-Instructions to run the app:
----------------------------------------------------------------
-1) In  the terminal, go to a location where you'd like, 
-1) git clone https://github.com/eecs394-s17/DayByDay.git
-While in the DayByDay directory:
-2) run "npm install"            ----> to install dependencies and libraries
-3) run "ionic serve"            ----> the app will open in an browser window
+## Developer Setup
+To set up the application for development, you will need to complete the
+following steps in a terminal shell of your choosing.
 
-Instructions to upload the hybrid app onto a mobile device:
-1) Download the ionic view app on the mobile device
-2) Create an account
-3) run "ionic upload"           ----> This will print a code (usually bolded) in the terminal
-4) Go to 'Preview apps' in ionic view and enter the code from step 3.
+1. `git clone https://github.com/eecs394-s17/DayByDay.git`.
+2. `cd DayByDay`
+3. `npm install`
+
+## Developers
+* Wajihuddin Omar Mohammed
+* Will Finnegan
+* Safia Abdalla
+* Grace Alexander
+* Haridu Senadeera
+* Kyle Lueptow

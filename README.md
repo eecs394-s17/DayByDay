@@ -33,6 +33,11 @@ To point the backend for this application to your own Firebase application,
 create a new Firebase application and update the authentication information
 in `src/app/app.module.ts`.
 
+### Known Bugs
+* Cancel on dropdowns does not unselect choice
+* Does not prevent duplicate sending of updates on double click in updates form
+* Access keys for Firebase publicly committed
+
 ## Developers
 * Wajihuddin Omar Mohammed
 * Will Finnegan

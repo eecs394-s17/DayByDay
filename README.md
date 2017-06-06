@@ -1,5 +1,3 @@
-<p align="center"> <img width= 32% align="center" src="/src/assets/img/Logo_Final_nowords.png"> </p>
-
 # DayByDay 
 This repository contains the code for the DayByDay app produced for the ICU at
 Lurie Children's Hospital as project for EECS394. 

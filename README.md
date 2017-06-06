@@ -1,6 +1,6 @@
 # DayByDay 
-This repository contains the code for the DayByDay app produced for the ICU at
-Lurie Children's Hospital as project for EECS394. 
+This repository contains the code for the DayByDay app produced for the Pediatriac ICU at
+Lurie Children's Hospital as project for EECS394. This app allows nurses to send routine updates to parents about their children.
 
 <img width= 70% src="Updating.gif">
 
